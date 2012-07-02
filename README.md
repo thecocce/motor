@@ -11,4 +11,6 @@ If you want to test the latest beta build, you should pull the dev branch and ad
 
 ## Changelog
 
+### beta (dev branch)
+
 ### alpha (released 2012-06-27)
