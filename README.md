@@ -2,7 +2,7 @@
 
 motor is an impulse-based rigid-body physics engine based on Box2D (http://www.box2d.org)
 
-Showcase (alpha): http://www.motorphysics.de
+Showcase: http://www.motorphysics.de
 
 ## Installation
 Install [Haxe](http://haxe.org/download) and run `$ haxelib install polygonal-motor` from the console.
@@ -11,6 +11,6 @@ If you want to test the latest beta build, you should pull the dev branch and ad
 
 ## Changelog
 
-### beta (dev branch)
-
 ### alpha (released 2012-06-27)
+
+ * Initial version.
