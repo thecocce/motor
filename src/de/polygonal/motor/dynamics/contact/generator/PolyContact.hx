@@ -51,13 +51,23 @@ class PolyContact extends ConvexContact
 	
 	override public function free():Void
 	{
-		_collider1.free();
-		_collider2.free();
-		_collider3.free();
+		if (_collider1 != null)
+		{
+			_collider1.free();
+			_collider1 = null;
+		}
 		
-		_collider1 = null;
-		_collider2 = null;
-		_collider3 = null;
+		if (_collider2 != null)
+		{
+			_collider2.free();
+			_collider2 = null;
+		}
+		
+		if (_collider3 != null)
+		{
+			_collider3.free();
+			_collider3 = null;
+		}
 		
 		super.free();
 	}
