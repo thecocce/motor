@@ -153,10 +153,10 @@ class Island
 			b.w  += dt * (     b.invI    * b.t );
 			
 			//apply damping
-			var t = Mathematics.fclamp(1 - dt * b.linDamping, 0, 1);
+			var t = M.fclamp(1 - dt * b.linDamping, 0, 1);
 			b.vx *= t;
 			b.vy *= t;
-			b.w  *= Mathematics.fclamp(1 - dt * b.angDamping, 0, 1);
+			b.w  *= M.fclamp(1 - dt * b.angDamping, 0, 1);
 			
 			//reset forces
 			b.clearForce();
@@ -455,19 +455,19 @@ class Island
 				}
 				
 				//does a shorter path exist?
-				b.stackHeight = Mathematics.min(b.stackHeight, a.stackHeight + 1);
+				b.stackHeight = M.min(b.stackHeight, a.stackHeight + 1);
 				
 				//keep track of the highest body
-				maxBodyHeight = Mathematics.max(b.stackHeight, maxBodyHeight);
+				maxBodyHeight = M.max(b.stackHeight, maxBodyHeight);
 				
 				//assign stack layer to edge
 				if (a.stackHeight == b.stackHeight && b.stackHeight != 0)
 					e.stackLayer = b.stackHeight - 1;
 				else
-					e.stackLayer = Mathematics.min(a.stackHeight, b.stackHeight);
+					e.stackLayer = M.min(a.stackHeight, b.stackHeight);
 				
 				//keep track of #layers
-				stackLayerCount = Mathematics.max(stackLayerCount, e.stackLayer);
+				stackLayerCount = M.max(stackLayerCount, e.stackLayer);
 				
 				//collect edge
 				if (e.timeStamp != _stackTimeStamp)
@@ -570,7 +570,7 @@ class Island
 			{
 				//accumulate sleeping time
 				b.sleepTime += dt;
-				minSleepTime = Mathematics.fmin(minSleepTime, b.sleepTime);
+				minSleepTime = M.fmin(minSleepTime, b.sleepTime);
 			}
 			
 			b = b.next;

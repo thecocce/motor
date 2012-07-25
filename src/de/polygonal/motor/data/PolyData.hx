@@ -77,7 +77,7 @@ class PolyData extends ShapeData
 			var input = vertexList;
 			
 			if (input.length < 6) throw 'malformed vertex chain: insufficient vertices';
-			if (!Mathematics.isEven(input.length)) throw 'malformed vertex chain: insufficient vertices';
+			if (!M.isEven(input.length)) throw 'malformed vertex chain: insufficient vertices';
 			for (x in input)
 			{
 				if (Math.isNaN(x))
@@ -113,7 +113,7 @@ class PolyData extends ShapeData
 				var v1 = v0.next;
 				for (j in i + 1...k)
 				{
-					if ((v1.x - v0.x) * (v1.x - v0.x) + (v1.y - v0.y) * (v1.y - v0.y) < Mathematics.EPS)
+					if ((v1.x - v0.x) * (v1.x - v0.x) + (v1.y - v0.y) * (v1.y - v0.y) < M.EPS)
 						throw 'malformed vertex chain: found overlapping vertices';
 					v1 = v1.next;
 				}
@@ -190,7 +190,7 @@ class PolyData extends ShapeData
 		
 		if (yRadius == 0) yRadius = xRadius;
 		
-		var span = Mathematics.PI2 / numSides;
+		var span = M.PI2 / numSides;
 		
 		_vertexList = new Array<Vec2>();
 		for (i in 0...numSides)
@@ -215,8 +215,8 @@ class PolyData extends ShapeData
 		var t2 = capRadius2;
 		var h2 = (length - t1 - t2);
 		
-		var span0 = Mathematics.PI / (capRes1 + 1);
-		var span1 = Mathematics.PI / (capRes2 + 1);
+		var span0 = M.PI / (capRes1 + 1);
+		var span1 = M.PI / (capRes2 + 1);
 		
 		var data = new Array<Float>();
 		

@@ -164,7 +164,7 @@ class MinimumAreaCircle
 			r2 = tx * tx + ty * ty;
 		}
 		
-		var r = 1 / Mathematics.invSqrt(r2);
+		var r = 1 / M.invSqrt(r2);
 		
 		var dist, dist2, t;
 		
@@ -177,7 +177,7 @@ class MinimumAreaCircle
 			dist2 = vx * vx + vy * vy;
 			if (dist2 <= r2) continue;
 			
-			dist = 1 / Mathematics.invSqrt(dist2);
+			dist = 1 / M.invSqrt(dist2);
 			
 			r = (r + dist) * .5;
 			r2 = r * r;
@@ -214,7 +214,7 @@ class MinimumAreaCircle
 		var R:Vec2 = null;
 		
 		//determine a point P with the smallest y value
-		var minY = Mathematics.POSITIVE_INFINITY;
+		var minY = M.POSITIVE_INFINITY;
 		for (i in 0...k)
 		{
 			v = vertices[i];
@@ -230,7 +230,7 @@ class MinimumAreaCircle
 		py = P.y;
 		
 		//find a point Q such that the angle of the line segment PQ with the x axis is minimal
-		dotMax = Mathematics.NEGATIVE_INFINITY;
+		dotMax = M.NEGATIVE_INFINITY;
 		
 		for (i in 0...k)
 		{
@@ -253,7 +253,7 @@ class MinimumAreaCircle
 		
 		for (i in 0...k)
 		{
-			dotMax = Mathematics.NEGATIVE_INFINITY;
+			dotMax = M.NEGATIVE_INFINITY;
 			
 			//find R such that the absolute value
 			//of the angle PRQ is minimal

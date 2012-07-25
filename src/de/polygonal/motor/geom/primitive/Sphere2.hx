@@ -57,7 +57,7 @@ class Sphere2 implements Cloneable<Sphere2>
 		}
 		else
 		{
-			var l = 1 / Mathematics.invSqrt(lSqr);
+			var l = 1 / M.invSqrt(lSqr);
 			var t = (l + b.r - a.r) / (2 * l);
 			output.c.x = a.c.x + t * dx;
 			output.c.y = a.c.y + t * dy;
@@ -111,7 +111,7 @@ class Sphere2 implements Cloneable<Sphere2>
 		}
 		else
 		{
-			var l = 1 / Mathematics.invSqrt(lSqr);
+			var l = 1 / M.invSqrt(lSqr);
 			var t = (l + other.r - r) / (2 * l);
 			c.x += t * dx;
 			c.y += t * dy;

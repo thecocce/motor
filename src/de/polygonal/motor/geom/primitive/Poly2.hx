@@ -210,7 +210,7 @@ class Poly2
 	
 	public static function createBlob(numSides:Int, radius:Float):Poly2
 	{
-		var span = Mathematics.PI2 / numSides;
+		var span = M.PI2 / numSides;
 		var vertexList = new Array<Vec2>();
 		for (i in 0...numSides)
 		{

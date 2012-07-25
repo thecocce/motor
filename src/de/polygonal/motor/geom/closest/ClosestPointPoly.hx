@@ -81,7 +81,7 @@ class ClosestPointPoly
 					inside = false;
 			}
 			
-			t = Mathematics.fclamp(d / (ex * ex + ey * ey), .0, 1.);
+			t = M.fclamp(d / (ex * ex + ey * ey), .0, 1.);
 			tx = v1x + ex * t;
 			ty = v1y + ey * t;
 			dSq = (px - tx) * (px - tx) + (py - ty) * (py - ty);

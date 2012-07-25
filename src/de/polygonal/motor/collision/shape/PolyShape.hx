@@ -29,9 +29,10 @@
  */
 package de.polygonal.motor.collision.shape;
 
-import de.polygonal.core.math.Mathematics;
+import de.polygonal.core.math.Mat22;
+import de.polygonal.core.math.Mat32;
+import de.polygonal.core.math.Vec2;
 import de.polygonal.core.math.Vec2Util;
-import de.polygonal.ds.ArrayUtil;
 import de.polygonal.ds.BinaryTreeNode;
 import de.polygonal.motor.collision.shape.feature.Vertex;
 import de.polygonal.motor.data.MassData;
@@ -41,14 +42,12 @@ import de.polygonal.motor.geom.bsp.ConvexBSPNode;
 import de.polygonal.motor.geom.bv.MinimumAreaRectangle;
 import de.polygonal.motor.geom.closest.ClosestPointPoly;
 import de.polygonal.motor.geom.inside.PointInsidePoly;
-import de.polygonal.core.math.Mat22;
-import de.polygonal.core.math.Mat32;
-import de.polygonal.core.math.Vec2;
 import de.polygonal.motor.geom.primitive.AABB2;
 import de.polygonal.motor.geom.primitive.OBB2;
 import de.polygonal.motor.geom.primitive.Poly2;
 import de.polygonal.motor.Settings;
 import de.polygonal.motor.World;
+import de.polygonal.core.math.Mathematics;
 
 using de.polygonal.ds.BitFlags;
 
@@ -102,10 +101,10 @@ class PolyShape extends AbstractShape
 		_area = Poly2.computeCentroidAndArea(_vertexList, localCenter);
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(_area > Mathematics.EPS, 'area > Mathematics.EPSILON');
+		de.polygonal.core.macro.Assert.assert(_area > M.EPS, 'area > M.EPSILON');
 		#end
 		
-		if (Vec2Util.dot2(localCenter, localCenter) > Mathematics.EPS * Mathematics.EPS)
+		if (Vec2Util.dot2(localCenter, localCenter) > M.EPS * M.EPS)
 		{
 			//shape origin doesn't coincide with shape center;
 			//simplify by shifting the shape from the center to the origin...
@@ -307,17 +306,17 @@ class PolyShape extends AbstractShape
 			else
 				syncFeatures(T);
 			
-			aabb.minX = Mathematics.POSITIVE_INFINITY;
-			aabb.minY = Mathematics.POSITIVE_INFINITY;
-			aabb.maxX = Mathematics.NEGATIVE_INFINITY;
-			aabb.maxY = Mathematics.NEGATIVE_INFINITY;
+			aabb.minX = M.POSITIVE_INFINITY;
+			aabb.minY = M.POSITIVE_INFINITY;
+			aabb.maxX = M.NEGATIVE_INFINITY;
+			aabb.maxY = M.NEGATIVE_INFINITY;
 			var v = worldVertexChain;
 			for (i in 0...vertexCount)
 			{
-				aabb.minX = Mathematics.fmin(aabb.minX, v.x);
-				aabb.minY = Mathematics.fmin(aabb.minY, v.y);
-				aabb.maxX = Mathematics.fmax(aabb.maxX, v.x);
-				aabb.maxY = Mathematics.fmax(aabb.maxY, v.y);
+				aabb.minX = M.fmin(aabb.minX, v.x);
+				aabb.minY = M.fmin(aabb.minY, v.y);
+				aabb.maxX = M.fmax(aabb.maxX, v.x);
+				aabb.maxY = M.fmax(aabb.maxY, v.y);
 				v = v.next;
 			}
 		}
@@ -337,7 +336,7 @@ class PolyShape extends AbstractShape
 			var dx = v.x - lx;
 			var dy = v.y - ly;
 			
-			r = Mathematics.fmax(r, dx * dx + dy * dy);
+			r = M.fmax(r, dx * dx + dy * dy);
 			v = v.next;
 		}
 		while (v != v0);
@@ -434,7 +433,7 @@ class PolyShape extends AbstractShape
 	function _computeMinimumBoundingSphere():Void
 	{
 		var rSq = Math.NEGATIVE_INFINITY;
-		for (v in localVertexChain) rSq = Mathematics.fmax(rSq, Vec2Util.dot2(v, v));
+		for (v in localVertexChain) rSq = M.fmax(rSq, Vec2Util.dot2(v, v));
 		radius = Math.sqrt(rSq);
 	}
 	

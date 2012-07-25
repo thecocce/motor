@@ -74,7 +74,7 @@ class DistanceSegmentSegment
 		
 		var s, t, dx, dy;
 		
-		if (a <= Mathematics.EPS && e <= Mathematics.EPS)
+		if (a <= M.EPS && e <= M.EPS)
 		{
 			s = t = .0;
 			
@@ -84,26 +84,26 @@ class DistanceSegmentSegment
 		}
 		else
 		{
-			if (a <= Mathematics.EPS)
+			if (a <= M.EPS)
 			{
 				s = .0;
 				t = f / e;
-				t = Mathematics.fclamp(t, 0, 1);
+				t = M.fclamp(t, 0, 1);
 			}
 			else
 			{
 				var c = Vec2Util.dot4(d1x, d1y, rx, ry);
-				if (e <= Mathematics.EPS)
+				if (e <= M.EPS)
 				{
 					t = .0;
-					s = Mathematics.fclamp(-c / a, 0, 1);
+					s = M.fclamp(-c / a, 0, 1);
 				}
 				else
 				{
 					var b = Vec2Util.dot4(d1x, d1y, d2x, d2y);
 					var denom = a * e - b * b;
 					if (denom != .0)
-						s = Mathematics.fclamp((b * f - c * e) / denom, 0, 1);
+						s = M.fclamp((b * f - c * e) / denom, 0, 1);
 					else
 						s = .0;
 						
@@ -111,13 +111,13 @@ class DistanceSegmentSegment
 					if (t < .0)
 					{
 						t = .0;
-						s = Mathematics.fclamp(-c / a, 0, 1);
+						s = M.fclamp(-c / a, 0, 1);
 					}
 					else
 					if (t > 1.)
 					{
 						t = 1.;
-						s = Mathematics.fclamp((b - c) / a, 0, 1);
+						s = M.fclamp((b - c) / a, 0, 1);
 					}
 				}
 			}

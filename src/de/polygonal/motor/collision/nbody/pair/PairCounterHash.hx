@@ -42,7 +42,7 @@ class PairCounterHash
 	public function new(max:Int)
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(Mathematics.isPow2(max), 'Mathematics.isPow2(max)');
+		de.polygonal.core.macro.Assert.assert(M.isPow2(max), 'M.isPow2(max)');
 		#end
 		
 		_data = new IntIntHashTable(max, max);

@@ -333,10 +333,10 @@ class AbstractShape implements Hashable
 		
 		_computeAABB(aabb, T2);
 		
-		aabb.minX = Mathematics.fmin(minX, aabb.minX);
-		aabb.minY = Mathematics.fmin(minY, aabb.minY);
-		aabb.maxX = Mathematics.fmax(maxX, aabb.maxX);
-		aabb.maxY = Mathematics.fmax(maxY, aabb.maxY);
+		aabb.minX = M.fmin(minX, aabb.minX);
+		aabb.minY = M.fmin(minY, aabb.minY);
+		aabb.maxX = M.fmax(maxX, aabb.maxX);
+		aabb.maxY = M.fmax(maxY, aabb.maxY);
 	}
 	
 	/** Updates the sweep radius (maximum radius) as measured from a given local center point <i>c</i>. */
