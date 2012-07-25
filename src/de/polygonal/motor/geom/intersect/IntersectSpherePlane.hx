@@ -61,6 +61,6 @@ class IntersectSpherePlane
 	 */
 	inline public static function test6(cx:Float, cy:Float, r:Float, nx:Float, ny:Float, d:Float):Bool
 	{
-		return Mathematics.fabs(Vec2Util.dot4(cx, cy, nx, ny) - d) <= r;
+		return M.fabs(Vec2Util.dot4(cx, cy, nx, ny) - d) <= r;
 	}
 }

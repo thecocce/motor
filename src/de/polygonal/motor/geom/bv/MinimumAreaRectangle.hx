@@ -30,8 +30,8 @@
 package de.polygonal.motor.geom.bv;
 
 import de.polygonal.core.math.Mathematics;
-import de.polygonal.ds.ArrayUtil;
 import de.polygonal.core.math.Vec2;
+import de.polygonal.ds.ArrayUtil;
 import de.polygonal.motor.geom.primitive.OBB2;
 import de.polygonal.core.macro.Assert;
 
@@ -49,7 +49,7 @@ class MinimumAreaRectangle
 	 * @param convex set to true if the polyline already forms a convex hull (faster).
 	 * @param obb stores the result.
 	 * @param k the number of input vertices.
-	 * @throws de.polygonal.core.macro.AssertionError <code>k</code> out of bound (debug only).
+	 * @throws de.polygonal.AssertError <code>k</code> out of bound (debug only).
 	 */
 	public static function find(vertexList:Array<Vec2>, convex:Bool, obb:OBB2, k = 0):Void
 	{
@@ -73,7 +73,7 @@ class MinimumAreaRectangle
 			}
 		}
 		
-		var minArea = Mathematics.POSITIVE_INFINITY;
+		var minArea = M.POSITIVE_INFINITY;
 		var m = Math;
 		
 		for (i in 0...k)
@@ -87,7 +87,7 @@ class MinimumAreaRectangle
 			var ux_y = t.y - ry;
 			
 			var length = m.sqrt(ux_x * ux_x + ux_y * ux_y);
-			if (length < Mathematics.EPS) continue;
+			if (length < M.EPS) continue;
 			
 			ux_x /= length;
 			ux_y /= length;
@@ -95,10 +95,10 @@ class MinimumAreaRectangle
 			var uy_x =-ux_y;
 			var uy_y = ux_x;
 			
-			var min_x = Mathematics.POSITIVE_INFINITY;
-			var min_y = Mathematics.POSITIVE_INFINITY;
-			var max_x = Mathematics.NEGATIVE_INFINITY;
-			var max_y = Mathematics.NEGATIVE_INFINITY;
+			var min_x = M.POSITIVE_INFINITY;
+			var min_y = M.POSITIVE_INFINITY;
+			var max_x = M.NEGATIVE_INFINITY;
+			var max_y = M.NEGATIVE_INFINITY;
 			
 			for (j in 0...k)
 			{
@@ -109,11 +109,11 @@ class MinimumAreaRectangle
 				var rx = ux_x * dx + ux_y * dy;
 				var ry = uy_x * dx + uy_y * dy;
 				
-				min_x = Mathematics.fmin(min_x, rx);
-				min_y = Mathematics.fmin(min_y, ry);
+				min_x = M.fmin(min_x, rx);
+				min_y = M.fmin(min_y, ry);
 				
-				max_x = Mathematics.fmax(max_x, rx);
-				max_y = Mathematics.fmax(max_y, ry);
+				max_x = M.fmax(max_x, rx);
+				max_y = M.fmax(max_y, ry);
 			}
 			
 			var area = (max_x - min_x) * (max_y - min_y);

@@ -95,12 +95,12 @@ class CollidePoly extends ClipCollider
 			if (_separation(_p, dx, dy, node.V) > 0) return;
 		}
 		
-		var sep1 = Mathematics.NEGATIVE_INFINITY;
+		var sep1 = M.NEGATIVE_INFINITY;
 		var refEdgeNormal1 = null;
 		var refEdgeVertex1 = null;
 		var supportVertex1 = null;
 		
-		var sep2 = Mathematics.NEGATIVE_INFINITY;
+		var sep2 = M.NEGATIVE_INFINITY;
 		var refEdgeNormal2 = null;
 		var refEdgeVertex2 = null;
 		var supportVertex2 = null;
@@ -313,7 +313,7 @@ class CollidePoly extends ClipCollider
 	
 	inline static function _supportBruteForce(s:Vertex, dx:Float, dy:Float):Vertex
 	{
-		var tmin = Mathematics.POSITIVE_INFINITY;
+		var tmin = M.POSITIVE_INFINITY;
 		var smin = s, s0 = s;
 		
 		do

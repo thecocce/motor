@@ -81,7 +81,7 @@ class CollideCircle implements Collider
 		}
 		else
 		{
-			var d = 1 / Mathematics.invSqrt(dSq);
+			var d = 1 / M.invSqrt(dSq);
 			mp.sep = d - r;
 			n.x = (1 / d) * dx;
 			n.y = (1 / d) * dy;

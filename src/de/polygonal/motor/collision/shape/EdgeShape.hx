@@ -208,10 +208,10 @@ class EdgeShape extends AbstractShape
 			var x2 = T.mulx(v.x, v.y);
 			var y2 = T.muly(v.x, v.y);
 			
-			aabb.minX = Mathematics.fmin(x1, x2);
-			aabb.minY = Mathematics.fmin(y1, y2);
-			aabb.maxX = Mathematics.fmax(x1, x2);
-			aabb.maxY = Mathematics.fmax(y1, y2);
+			aabb.minX = M.fmin(x1, x2);
+			aabb.minY = M.fmin(y1, y2);
+			aabb.maxX = M.fmax(x1, x2);
+			aabb.maxY = M.fmax(y1, y2);
 			//aabb.minX = x - radius;
 			//aabb.minY = y - radius;
 			//aabb.maxX = x + radius;
@@ -239,10 +239,10 @@ class EdgeShape extends AbstractShape
 		var x22 = T2.mulx(v.x, v.y);
 		var y22 = T2.muly(v.x, v.y);
 		
-		aabb.minX = Mathematics.fmin(Mathematics.fmin(x11, x12), Mathematics.fmin(x21, x22));
-		aabb.minY = Mathematics.fmin(Mathematics.fmin(y11, y12), Mathematics.fmin(y21, y22));
-		aabb.maxX = Mathematics.fmax(Mathematics.fmax(x11, x12), Mathematics.fmin(x21, x22));
-		aabb.maxY = Mathematics.fmax(Mathematics.fmax(y11, y12), Mathematics.fmin(y21, y22));
+		aabb.minX = M.fmin(M.fmin(x11, x12), M.fmin(x21, x22));
+		aabb.minY = M.fmin(M.fmin(y11, y12), M.fmin(y21, y22));
+		aabb.maxX = M.fmax(M.fmax(x11, x12), M.fmin(x21, x22));
+		aabb.maxY = M.fmax(M.fmax(y11, y12), M.fmin(y21, y22));
 	}
 	
 	override public function updateSweepRadius(localCenter:Vec2):Void
@@ -260,7 +260,7 @@ class EdgeShape extends AbstractShape
 		dy = _coreVertex1.y - cy;
 		d2 = Vec2Util.dot4(dx, dy, dx, dy);
 		
-		sweepRadius = Math.sqrt(Mathematics.fmax(d1, d2));
+		sweepRadius = Math.sqrt(M.fmax(d1, d2));
 	}
 	
 	override public function closestPoint(p:Vec2, q:Vec2):Vec2
@@ -317,13 +317,13 @@ class EdgeShape extends AbstractShape
 		var d = worldVertexChain.edge.dir;
 		var bound = _settings.worldBound;
 		
-		var tmin = Mathematics.NEGATIVE_INFINITY;
-		var tmax = Mathematics.POSITIVE_INFINITY;
+		var tmin = M.NEGATIVE_INFINITY;
+		var tmax = M.POSITIVE_INFINITY;
 		
 		var _x = .0;
 		var _y = .0;
 		
-		if (Mathematics.fabs(d.x) < _settings.eps)
+		if (M.fabs(d.x) < _settings.eps)
 		{
 			if (_x < bound.minX) return false;
 			if (_x > bound.maxX) return false;
@@ -343,7 +343,7 @@ class EdgeShape extends AbstractShape
 			if (tmin > tmax) return false;
 		}
 		
-		if (Mathematics.fabs(d.y) < _settings.eps)
+		if (M.fabs(d.y) < _settings.eps)
 		{
 			if (_y < bound.minY) return false;
 			if (_y > bound.maxY) return false;

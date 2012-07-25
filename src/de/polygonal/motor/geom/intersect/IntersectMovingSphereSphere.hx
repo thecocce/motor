@@ -73,7 +73,7 @@ class IntersectMovingSphereSphere
 		else
 		{
 			var a = vx * vx + vy * vy;
-			if 	(a < Mathematics.EPS)
+			if 	(a < M.EPS)
 				return -1.;
 			else
 			{

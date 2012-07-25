@@ -80,7 +80,7 @@ class IntersectSegmentAABB
 			if (my.fabs() > ey + ady)
 				return false;
 			else
-				return (mx * dy - my * dx).fabs() <= ex * (ady + Mathematics.EPS) + ey * (adx + Mathematics.EPS);
+				return (mx * dy - my * dx).fabs() <= ex * (ady + M.EPS) + ey * (adx + M.EPS);
 		}
 	}
 	
@@ -118,7 +118,7 @@ class IntersectSegmentAABB
 		var dx = bx - ax;
 		var dy = by - ay;
 		
-		if (Mathematics.fabs(dx) < Mathematics.EPS)
+		if (M.fabs(dx) < M.EPS)
 		{
 			if (ax <= minX || ax >= maxX) return false;
 		}
@@ -130,13 +130,13 @@ class IntersectSegmentAABB
 			{
 				var tmp = t1; t1 = t2; t2 = tmp;
 			}
-			tmin = Mathematics.fmax(tmin, t1);
-			tmax = Mathematics.fmin(tmax, t2);
+			tmin = M.fmax(tmin, t1);
+			tmax = M.fmin(tmax, t2);
 			
 			if (tmin >= tmax) return false;
 		}
 		
-		if (Mathematics.fabs(dy) < Mathematics.EPS)
+		if (M.fabs(dy) < M.EPS)
 		{
 			if (ay <= minY || ay >= maxY) return false;
 		}
@@ -148,8 +148,8 @@ class IntersectSegmentAABB
 			{
 				var tmp = t1; t1 = t2; t2 = tmp;
 			}
-			tmin = Mathematics.fmax(tmin, t1);
-			tmax = Mathematics.fmin(tmax, t2);
+			tmin = M.fmax(tmin, t1);
+			tmax = M.fmin(tmax, t2);
 			
 			if (tmin >= tmax) return false;
 		}
@@ -195,7 +195,7 @@ class IntersectSegmentAABB
 		var tmax = 1.;
 		
 		//start with x-slab
-		if (dx.fabs() < Mathematics.EPS)
+		if (dx.fabs() < M.EPS)
 		{
 			//ray parallel to slab;
 			//no hit possible if origin outside slab
@@ -207,7 +207,7 @@ class IntersectSegmentAABB
 			else
 			{
 				//repeat with y-slab
-				if (dy.fabs() < Mathematics.EPS)
+				if (dy.fabs() < M.EPS)
 				{
 					if (ay < minY - inflate)
 						return false;
@@ -291,7 +291,7 @@ class IntersectSegmentAABB
 					out.e1 = t1 < 1. ? 1 : -1;
 					
 					//repeat with y-slab
-					if (dy.fabs() < Mathematics.EPS)
+					if (dy.fabs() < M.EPS)
 					{
 						if (ay < minY - inflate)
 							return false;
@@ -368,7 +368,7 @@ class IntersectSegmentAABB
 					out.e0 = t1 > .0 ? 1 : -1;
 					
 					//repeat with y-slab
-					if (dy.fabs() < Mathematics.EPS)
+					if (dy.fabs() < M.EPS)
 					{
 						if (ay < minY - inflate)
 							return false;

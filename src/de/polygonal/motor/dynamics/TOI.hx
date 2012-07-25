@@ -110,7 +110,7 @@ class TOI
 				if (distance > 2 * _settings.toiSlop)
 					targetDistance = 1.5 * _settings.toiSlop;
 				else
-					targetDistance = Mathematics.fmax(.05 * _settings.toiSlop, distance - .5 * _settings.toiSlop);
+					targetDistance = M.fmax(.05 * _settings.toiSlop, distance - .5 * _settings.toiSlop);
 			}
 			
 			if (distance - targetDistance < .05 * _settings.toiSlop || iter == MAX_ITERATIONS) break;
@@ -122,9 +122,9 @@ class TOI
 			ny /= norm;
 			
 			//compute upper bound on remaining movement
-			var approachVelocityBound = (Vec2Util.dot4(nx, ny, v1x - v2x, v1y - v2y)) + Mathematics.fabs(omega1) * r1 + Mathematics.fabs(omega2) * r2;
+			var approachVelocityBound = (Vec2Util.dot4(nx, ny, v1x - v2x, v1y - v2y)) + M.fabs(omega1) * r1 + M.fabs(omega2) * r2;
 			
-			if (Mathematics.fabs(approachVelocityBound) < _settings.eps)
+			if (M.fabs(approachVelocityBound) < _settings.eps)
 			{
 				alpha = 1.;
 				break;

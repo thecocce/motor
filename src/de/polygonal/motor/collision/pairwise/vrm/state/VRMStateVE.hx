@@ -177,7 +177,7 @@ class VRMStateVE extends VRMState
 		{
 			var f = ef;
 			var newFeature:VRMFeature = null;
-			var dmax = Mathematics.NEGATIVE_INFINITY;
+			var dmax = M.NEGATIVE_INFINITY;
 			for (i in 0...ef.shape.vertexCount)
 			{
 				//skip vertex features

@@ -75,7 +75,7 @@ class IntersectSphere
 			return false;
 		else
 		{
-			if (dSqr < Mathematics.EPS)
+			if (dSqr < M.EPS)
 			{
 				collideInfo.normal.x = 0;
 				collideInfo.normal.y = 1;

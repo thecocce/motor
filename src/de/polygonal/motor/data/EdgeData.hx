@@ -70,7 +70,7 @@ class EdgeData extends ShapeData
 		var dy = b.y - a.y;
 		
 		#if debug
-		if (Math.sqrt(dx * dx + dy * dy) <= Mathematics.EPS)
+		if (Math.sqrt(dx * dx + dy * dy) <= M.EPS)
 			throw 'overlapping vertices detected';
 		#end
 		

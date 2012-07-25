@@ -59,7 +59,7 @@ class CircleShape extends AbstractShape
 		var rSq = radius * radius;
 		
 		var data = new MassData();
-		data.mass = density * Mathematics.PI * rSq;
+		data.mass = density * M.PI * rSq;
 		TLocal.getPositionFromLocalToParentMatrix(data.center);
 		data.I = (data.mass * .5 * rSq) + (data.mass * Vec2Util.dot2(data.center, data.center));
 		
