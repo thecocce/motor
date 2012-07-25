@@ -61,7 +61,7 @@ class IntersectSegmentSphere
 		var dy = by - ay;
 		var tx = cx - ax;
 		var ty = cy - ay;
-		var t = Mathematics.fclamp((tx * dx + ty * dy) / (dx * dx + dy * dy), .0, 1.);
+		var t = M.fclamp((tx * dx + ty * dy) / (dx * dx + dy * dy), .0, 1.);
 		dx = cx - (ax + t * dx);
 		dy = cy - (ay + t * dy);
 		return dx * dx + dy * dy <= r * r;

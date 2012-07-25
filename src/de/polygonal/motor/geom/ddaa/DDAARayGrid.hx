@@ -79,7 +79,7 @@ class DDAARayGrid
 		var i = 0;
 		var j = 0;
 		
-		if (dx.fabs() < Mathematics.EPS)
+		if (dx.fabs() < M.EPS)
 		{
 			YSTEP = dy.fsgn();
 			if (YSTEP >= 0)
@@ -103,7 +103,7 @@ class DDAARayGrid
 			}
 		}
 		else
-		if (dy.fabs() < Mathematics.EPS)
+		if (dy.fabs() < M.EPS)
 		{
 			XSTEP = dx.fsgn();
 			if (XSTEP > 0)

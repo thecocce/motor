@@ -88,7 +88,7 @@ class DDAASegmentGrid
 		var i = 0;
 		var j = 0;
 		
-		if (dx.fabs() < Mathematics.EPS)
+		if (dx.fabs() < M.EPS)
 		{
 			YSTEP = dy.fsgn();
 			if (YSTEP >= 0)
@@ -103,7 +103,7 @@ class DDAASegmentGrid
 				tDeltaY =-ySize / dy;
 			}
 			
-			var y = 0, cy = Mathematics.abs(y1 - y0);
+			var y = 0, cy = M.abs(y1 - y0);
 			
 			while (true)
 			{
@@ -116,7 +116,7 @@ class DDAASegmentGrid
 			}
 		}
 		else
-		if (dy.fabs() < Mathematics.EPS)
+		if (dy.fabs() < M.EPS)
 		{
 			XSTEP = dx.fsgn();
 			if (XSTEP > 0)
@@ -131,7 +131,7 @@ class DDAASegmentGrid
 				tDeltaX =-xSize / dx;
 			}
 			
-			var x = 0, cx = Mathematics.abs(x1 - x0);
+			var x = 0, cx = M.abs(x1 - x0);
 			
 			while (true)
 			{
@@ -172,8 +172,8 @@ class DDAASegmentGrid
 			
 			var x = 0;
 			var y = 0;
-			var cx = Mathematics.abs(x1 - x0);
-			var cy = Mathematics.abs(y1 - y0);
+			var cx = M.abs(x1 - x0);
+			var cy = M.abs(y1 - y0);
 			
 			while (true)
 			{

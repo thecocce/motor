@@ -67,10 +67,10 @@ class IntersectRayAABB
 	inline public static function test5(px:Float, py:Float, dx:Float, dy:Float, A:AABB2):Bool
 	{
 		var tmin = .0;
-		var tmax = Mathematics.POSITIVE_INFINITY;
+		var tmax = M.POSITIVE_INFINITY;
 		
 		//start with x-slab
-		if (dx.fabs() < Mathematics.EPS)
+		if (dx.fabs() < M.EPS)
 		{
 			//ray parallel to slab;
 			//no hit possible if origin outside slab
@@ -82,7 +82,7 @@ class IntersectRayAABB
 			else
 			{
 				//repeat with y-slab
-				if (dy.fabs() < Mathematics.EPS)
+				if (dy.fabs() < M.EPS)
 				{
 					if (py < A.minY)
 						return false;
@@ -135,7 +135,7 @@ class IntersectRayAABB
 				else
 				{
 					//repeat with y-slab
-					if (dy.fabs() < Mathematics.EPS)
+					if (dy.fabs() < M.EPS)
 					{
 						if (py < A.minY)
 							return false;
@@ -181,7 +181,7 @@ class IntersectRayAABB
 				else
 				{
 					//repeat with y-slab
-					if (dy.fabs() < Mathematics.EPS)
+					if (dy.fabs() < M.EPS)
 					{
 						if (py < A.minY)
 							return false;
@@ -261,10 +261,10 @@ class IntersectRayAABB
 		out:ClipInfo, ?inflate = .0):Bool
 	{
 		var tmin = .0;
-		var tmax = Mathematics.POSITIVE_INFINITY;
+		var tmax = M.POSITIVE_INFINITY;
 		
 		//start with x-slab
-		if (dx.fabs() < Mathematics.EPS)
+		if (dx.fabs() < M.EPS)
 		{
 			//ray parallel to slab;
 			//no hit possible if origin outside slab
@@ -276,7 +276,7 @@ class IntersectRayAABB
 			else
 			{
 				//repeat with y-slab
-				if (dy.fabs() < Mathematics.EPS)
+				if (dy.fabs() < M.EPS)
 				{
 					if (py < minY - inflate)
 						return false;
@@ -360,7 +360,7 @@ class IntersectRayAABB
 					out.e1 = 1;
 					
 					//repeat with y-slab
-					if (dy.fabs() < Mathematics.EPS)
+					if (dy.fabs() < M.EPS)
 					{
 						if (py < minY - inflate)
 							return false;
@@ -437,7 +437,7 @@ class IntersectRayAABB
 					out.e1 = 3;
 					
 					//repeat with y-slab
-					if (dy.fabs() < Mathematics.EPS)
+					if (dy.fabs() < M.EPS)
 					{
 						if (py < minY - inflate)
 							return false;

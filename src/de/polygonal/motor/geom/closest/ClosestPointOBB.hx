@@ -29,9 +29,9 @@
  */
 package de.polygonal.motor.geom.closest;
 
+import de.polygonal.core.math.Mat22;
 import de.polygonal.core.math.Mathematics;
 import de.polygonal.core.math.Vec2;
-import de.polygonal.core.math.Mat22;
 import de.polygonal.motor.geom.primitive.OBB2;
 
 /**
@@ -72,10 +72,10 @@ class ClosestPointOBB
 	{
 		var dx = px - cx;
 		var dy = py - cy;
-		var d = Mathematics.fclamp(dx * r11 + dy * r21, -ex, ex);
+		var d = M.fclamp(dx * r11 + dy * r21, -ex, ex);
 		cx += r11 * d;
 		cy += r21 * d;
-		var d = Mathematics.fclamp(dx * r12 + dy * r22, -ey, ey);
+		var d = M.fclamp(dx * r12 + dy * r22, -ey, ey);
 		cx += r12 * d;
 		cy += r22 * d;
 		q.x = cx;

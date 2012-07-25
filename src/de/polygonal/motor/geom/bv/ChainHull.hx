@@ -42,7 +42,7 @@ class ChainHull
 	 * @param h the convex hull.
 	 * @param k the number of input vertices. If omitted, k is set to <code>p</code>.length.
 	 * @return the number of points in the convex hull.
-	 * @throws de.polygonal.core.macro.AssertionError <code>k</code> out of bound (debug only).
+	 * @throws de.polygonal.AssertError <code>k</code> out of bound (debug only).
 	 */
 	public static function find(p:Array<Vec2>, h:Array<Vec2>, k = 0):Int
 	{

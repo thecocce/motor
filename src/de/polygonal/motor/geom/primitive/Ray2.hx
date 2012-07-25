@@ -63,7 +63,7 @@ class Ray2 implements de.polygonal.ds.Cloneable<Ray2>
 		var dy = y - p.y;
 		
 		var t = dx * dx + dy * dy;
-		if (t < Mathematics.EPS)
+		if (t < M.EPS)
 		{
 			d.x = 0;
 			d.y = 0;

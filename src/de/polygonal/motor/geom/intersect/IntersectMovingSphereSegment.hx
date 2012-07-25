@@ -72,7 +72,7 @@ class IntersectMovingSphereSegment
 	{
 		#if debug
 		de.polygonal.core.macro.Assert.assert(!(ax == bx && ay == by), 'degenerate segment');
-		de.polygonal.core.macro.Assert.assert(Math.sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay)) > Mathematics.EPS, 'degenerate segment');
+		de.polygonal.core.macro.Assert.assert(Math.sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay)) > M.EPS, 'degenerate segment');
 		#end
 		
 		var dx = bx - ax;

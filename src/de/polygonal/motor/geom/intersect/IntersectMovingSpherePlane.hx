@@ -56,7 +56,7 @@ class IntersectMovingSpherePlane
 	{
 		var dist = (nx * sx + ny * sy) - d;
 		
-		if (Mathematics.fabs(dist) <= r)
+		if (M.fabs(dist) <= r)
 			return false;
 		else
 		{
@@ -90,7 +90,7 @@ class IntersectMovingSpherePlane
 		//distance of sphere to plane center
 		var dist = (nx * sx + ny * sy) - d;
 		
-		if (Mathematics.fabs(dist) <= r)
+		if (M.fabs(dist) <= r)
 		{
 			q.x = sx - nx * dist;
 			q.y = sy - ny * dist;

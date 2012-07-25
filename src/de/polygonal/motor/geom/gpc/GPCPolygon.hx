@@ -30,8 +30,6 @@
 package de.polygonal.motor.geom.gpc;
 
 import de.polygonal.core.fmt.Sprintf;
-import de.polygonal.core.math.Mathematics;
-import de.polygonal.ds.BitVector;
 import de.polygonal.ds.DA;
 import de.polygonal.ds.pooling.DynamicObjectPool;
 import de.polygonal.core.macro.Assert;
@@ -107,7 +105,7 @@ class GPCPolygon
 	
 	/**
 	 * Returns true if the contour at index <code>i</code> forms a hole.
-	 * @throws de.polygonal.core.macro.AssertionError index out of range (debug only).
+	 * @throws de.polygonal.AssertError index out of range (debug only).
 	 */
 	inline public function isHoleAt(i:Int):Bool
 	{
@@ -118,7 +116,7 @@ class GPCPolygon
 	/**
 	 * Returns the contour at index <code>i</code>.<br/>
 	 * A contour is stored using this format: [x0, y0, x1, y1, ..., xn, yn].
-	 * @throws de.polygonal.core.macro.AssertionError index out of range (debug only). 
+	 * @throws de.polygonal.AssertError index out of range (debug only). 
 	 */
 	inline public function getContourAt(i:Int):DA<Float>
 	{
@@ -135,7 +133,7 @@ class GPCPolygon
 	 */
 	public function addContour(vertexList:Array<Float>, n:Int, ?isHole = false):Void
 	{
-		D.assert(vertexList.length >= 0 && Mathematics.isEven(vertexList.length), Sprintf.format('invalid number of vertices (%d)', [vertexList.length]));
+		D.assert(vertexList.length >= 0 && M.isEven(vertexList.length), Sprintf.format('invalid number of vertices (%d)', [vertexList.length]));
 		
 		var a = _pool.get();
 		a.clear();

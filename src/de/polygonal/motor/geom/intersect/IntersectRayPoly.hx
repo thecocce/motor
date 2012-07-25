@@ -60,7 +60,7 @@ class IntersectRayPoly
 		var v1 = v0;
 		
 		var t0 = .0;
-		var t1 = Mathematics.POSITIVE_INFINITY;
+		var t1 = M.POSITIVE_INFINITY;
 		
 		var clip = true;
 		
@@ -72,7 +72,7 @@ class IntersectRayPoly
 			var denom = Vec2Util.dot4(nx, ny, (v1.x + nx * inflate) - px, (v1.y + ny * inflate) - py);
 			var numer = Vec2Util.dot4(nx, ny, dx, dy);
 			
-			if (Mathematics.fabs(numer) < Mathematics.EPS)
+			if (M.fabs(numer) < M.EPS)
 			{
 				if (denom < .0)
 				{
@@ -142,7 +142,7 @@ class IntersectRayPoly
 		var v1 = v0;
 		
 		var t0 = .0;
-		var t1 = Mathematics.POSITIVE_INFINITY;
+		var t1 = M.POSITIVE_INFINITY;
 		var e0 = null;
 		var e1 = null;
 		var q0, q1;
@@ -158,7 +158,7 @@ class IntersectRayPoly
 			var numer = Vec2Util.dot4(nx, ny, dx, dy);
 			
 			//ray parallel to plane
-			if (Mathematics.fabs(numer) < Mathematics.EPS)
+			if (M.fabs(numer) < M.EPS)
 			{
 				//origin outside plane, no intersection
 				if (denom < .0)

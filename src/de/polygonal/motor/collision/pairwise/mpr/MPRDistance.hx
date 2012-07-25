@@ -68,7 +68,7 @@ class MPRDistance
 		//deep point inside B–A.
 		var v0x = shape1.x - shape2.x;
 		var v0y = shape1.y - shape2.y;
-		if (Vec2Util.dot4(v0x, v0y, v0x, v0y) < Mathematics.EPS) v0x = Mathematics.EPS;
+		if (Vec2Util.dot4(v0x, v0y, v0x, v0y) < M.EPS) v0x = M.EPS;
 		
 		//we construct a normal that originates at the interior point and points towards the origin (-v0x, -v0y).
 		//find the support point in the direction of this ray; we get the first support point.
@@ -157,7 +157,7 @@ class MPRDistance
 			var v3y = node1.V.y - node2.V.y;
 			
 			//v3 is on or very close to the portal (v1, v2); terminate algorithm
-			if (Mathematics.fabs(Vec2Util.dot4(v3x - v1x, v3y - v1y, nx, ny)) < Mathematics.EPS)
+			if (M.fabs(Vec2Util.dot4(v3x - v1x, v3y - v1y, nx, ny)) < M.EPS)
 			{
 				//compute minimum distance
 				sep = DistancePointSegment.find6(.0, .0, v1x, v1y, v2x, v2y);

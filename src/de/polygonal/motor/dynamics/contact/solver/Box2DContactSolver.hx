@@ -417,8 +417,8 @@ class Box2DContactSolver
 						var vn2 = dv2x * nx + dv2y * ny;
 						
 						//check if normal velocity is close to zero = succesful computation
-						de.polygonal.core.macro.Assert.assert(Mathematics.fabs(vn1 - ccp1.velocityBias) < errorTolerance, 'Mathematics.abs(vn1 - ccp1.velocityBias) < errorTolerance');
-						de.polygonal.core.macro.Assert.assert(Mathematics.fabs(vn2 - ccp2.velocityBias) < errorTolerance, 'Mathematics.abs(vn2 - ccp2.velocityBias) < errorTolerance');
+						de.polygonal.core.macro.Assert.assert(M.fabs(vn1 - ccp1.velocityBias) < errorTolerance, 'M.abs(vn1 - ccp1.velocityBias) < errorTolerance');
+						de.polygonal.core.macro.Assert.assert(M.fabs(vn2 - ccp2.velocityBias) < errorTolerance, 'M.abs(vn2 - ccp2.velocityBias) < errorTolerance');
 						#end
 						break;
 					}
@@ -466,7 +466,7 @@ class Box2DContactSolver
 						
 						//TODO check absolute value
 						//de.polygonal.core.macro.Assert.assert((vn1 - ccp1.velocityBias) < errorTolerance, "(vn1 - cp1.velocityBias) < errorTolerance");							
-						de.polygonal.core.macro.Assert.assert(Mathematics.fabs(vn1 - ccp1.velocityBias) < errorTolerance, 'Mathematics.fabs(vn1 - ccp1.velocityBias) < errorTolerance');							
+						de.polygonal.core.macro.Assert.assert(M.fabs(vn1 - ccp1.velocityBias) < errorTolerance, 'M.fabs(vn1 - ccp1.velocityBias) < errorTolerance');							
 						#end
 						break;
 					}
@@ -503,7 +503,7 @@ class Box2DContactSolver
 						var dv2y = v2y + ( w2 * ccp2.r2x) - v1y - ( w1 * ccp2.r1x);
 						var vn2  = dv2x * nx + dv2y * ny;
 						//TODO check assert probably just a change of sign
-						de.polygonal.core.macro.Assert.assert(Mathematics.fabs(vn2 - ccp2.velocityBias) < errorTolerance, 'Mathematics.abs(vn2 - ccp2.velocityBias) < errorTolerance');
+						de.polygonal.core.macro.Assert.assert(M.fabs(vn2 - ccp2.velocityBias) < errorTolerance, 'M.abs(vn2 - ccp2.velocityBias) < errorTolerance');
 						#end
 						break;
 					}
@@ -554,7 +554,7 @@ class Box2DContactSolver
 				var lambda = ccp.tangentMass * (-vt);
 				
 				var maxFriction = cc.friction * ccp.normalImpulse;
-				var newImpulse = Mathematics.fclamp(ccp.tangentImpulse + lambda, -maxFriction, maxFriction);
+				var newImpulse = M.fclamp(ccp.tangentImpulse + lambda, -maxFriction, maxFriction);
 				lambda = newImpulse - ccp.tangentImpulse;
 				
 				var px = lambda * ny;
@@ -639,7 +639,7 @@ class Box2DContactSolver
 				
 				var separation = (dpx * nx + dpy * ny) + ccp.separation;
 				minSeparation = Math.min(minSeparation, separation);
-				var C = baumgarte * Mathematics.fclamp(separation + _settings.linSlop, -_settings.maxLinCorrection, 0);
+				var C = baumgarte * M.fclamp(separation + _settings.linSlop, -_settings.maxLinCorrection, 0);
 				var impulse = -ccp.equalizedMass * C;
 				
 				var px = impulse * nx;

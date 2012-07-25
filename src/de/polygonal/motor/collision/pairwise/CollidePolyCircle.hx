@@ -74,7 +74,7 @@ class CollidePolyCircle implements Collider
 		var cx  = s2.x;
 		var cy  = s2.y;
 		var r   = s2.radius;
-		var sep = Mathematics.NEGATIVE_INFINITY;
+		var sep = M.NEGATIVE_INFINITY;
 		
 		for (i in 0...s1.vertexCount)
 		{

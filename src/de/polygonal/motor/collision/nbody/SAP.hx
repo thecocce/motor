@@ -37,7 +37,6 @@ import de.polygonal.motor.collision.nbody.pair.BufferedPairManager;
 import de.polygonal.motor.collision.nbody.pair.PairHandler;
 import de.polygonal.motor.collision.shape.AbstractShape;
 import de.polygonal.motor.geom.primitive.AABB2;
-import de.polygonal.motor.Settings;
 
 class SAP extends AbstractBroadPhase<SAPProxy>
 {
@@ -81,15 +80,15 @@ class SAP extends AbstractBroadPhase<SAPProxy>
 		var dx0 = aabb.minX - _bound.maxX; var dx1 = _bound.minX - aabb.maxX;
 		var dy0 = aabb.minY - _bound.maxY; var dy1 = _bound.minY - aabb.maxY;
 		
-		return Mathematics.fmax(Mathematics.fmax(dx0, dx1), Mathematics.fmax(dy0, dy1)) < 0;
+		return M.fmax(M.fmax(dx0, dx1), M.fmax(dy0, dy1)) < 0;
 	}
 	
 	override public function queryAABB(aabb:AABB2, out:Array<AbstractShape>, maxCount:Int):Int
 	{
-		var minX0 = Std.int((_xQuantizationFactor * (Mathematics.fclamp(aabb.minX, _bound.minX, _bound.maxX) - _bound.minX))) & (0xffff - 1);
-		var maxX0 = Std.int((_xQuantizationFactor * (Mathematics.fclamp(aabb.maxX, _bound.minX, _bound.maxX) - _bound.minX))) | 1;
-		var minY0 = Std.int((_yQuantizationFactor * (Mathematics.fclamp(aabb.minY, _bound.minY, _bound.maxY) - _bound.minY))) & (0xffff - 1);
-		var maxY0 = Std.int((_yQuantizationFactor * (Mathematics.fclamp(aabb.maxY, _bound.minY, _bound.maxY) - _bound.minY))) | 1;
+		var minX0 = Std.int((_xQuantizationFactor * (M.fclamp(aabb.minX, _bound.minX, _bound.maxX) - _bound.minX))) & (0xffff - 1);
+		var maxX0 = Std.int((_xQuantizationFactor * (M.fclamp(aabb.maxX, _bound.minX, _bound.maxX) - _bound.minX))) | 1;
+		var minY0 = Std.int((_yQuantizationFactor * (M.fclamp(aabb.minY, _bound.minY, _bound.maxY) - _bound.minY))) & (0xffff - 1);
+		var maxY0 = Std.int((_yQuantizationFactor * (M.fclamp(aabb.maxY, _bound.minY, _bound.maxY) - _bound.minY))) | 1;
 		
 		_rangeQuery(_tmpInterval, minX0, maxX0, _boundX, _proxyCount << 1, 0);
 		_rangeQuery(_tmpInterval, minY0, maxY0, _boundY, _proxyCount << 1, 1);
@@ -126,10 +125,10 @@ class SAP extends AbstractBroadPhase<SAPProxy>
 		
 		var bound = shape.aabb;
 		
-		var minX0 = Std.int((_xQuantizationFactor * (Mathematics.fclamp(bound.minX, _bound.minX, _bound.maxX) - _bound.minX))) & (0xffff - 1);
-		var maxX0 = Std.int((_xQuantizationFactor * (Mathematics.fclamp(bound.maxX, _bound.minX, _bound.maxX) - _bound.minX))) | 1;
-		var minY0 = Std.int((_yQuantizationFactor * (Mathematics.fclamp(bound.minY, _bound.minY, _bound.maxY) - _bound.minY))) & (0xffff - 1);
-		var maxY0 = Std.int((_yQuantizationFactor * (Mathematics.fclamp(bound.maxY, _bound.minY, _bound.maxY) - _bound.minY))) | 1;
+		var minX0 = Std.int((_xQuantizationFactor * (M.fclamp(bound.minX, _bound.minX, _bound.maxX) - _bound.minX))) & (0xffff - 1);
+		var maxX0 = Std.int((_xQuantizationFactor * (M.fclamp(bound.maxX, _bound.minX, _bound.maxX) - _bound.minX))) | 1;
+		var minY0 = Std.int((_yQuantizationFactor * (M.fclamp(bound.minY, _bound.minY, _bound.maxY) - _bound.minY))) & (0xffff - 1);
+		var maxY0 = Std.int((_yQuantizationFactor * (M.fclamp(bound.maxY, _bound.minY, _bound.maxY) - _bound.minY))) | 1;
 		
 		var boundCount = proxyCount << 1;
 		var index:Int;
@@ -332,10 +331,10 @@ class SAP extends AbstractBroadPhase<SAPProxy>
 		//sorting of lower/upper bound that would have equal values.
 		var bound = proxy.shape.aabb;
 		
-		var minX1 = Std.int((_xQuantizationFactor * (Mathematics.fclamp(bound.minX, _bound.minX, _bound.maxX) - _bound.minX))) & (0xffff - 1);
-		var maxX1 = Std.int((_xQuantizationFactor * (Mathematics.fclamp(bound.maxX, _bound.minX, _bound.maxX) - _bound.minX))) | 1;
-		var minY1 = Std.int((_yQuantizationFactor * (Mathematics.fclamp(bound.minY, _bound.minY, _bound.maxY) - _bound.minY))) & (0xffff - 1);
-		var maxY1 = Std.int((_yQuantizationFactor * (Mathematics.fclamp(bound.maxY, _bound.minY, _bound.maxY) - _bound.minY))) | 1;
+		var minX1 = Std.int((_xQuantizationFactor * (M.fclamp(bound.minX, _bound.minX, _bound.maxX) - _bound.minX))) & (0xffff - 1);
+		var maxX1 = Std.int((_xQuantizationFactor * (M.fclamp(bound.maxX, _bound.minX, _bound.maxX) - _bound.minX))) | 1;
+		var minY1 = Std.int((_yQuantizationFactor * (M.fclamp(bound.minY, _bound.minY, _bound.maxY) - _bound.minY))) & (0xffff - 1);
+		var maxY1 = Std.int((_yQuantizationFactor * (M.fclamp(bound.maxY, _bound.minY, _bound.maxY) - _bound.minY))) | 1;
 		
 		//get old bound values
 		var minX0 = _boundX.get(proxy.minX).value;
@@ -873,12 +872,12 @@ private class Bound
 	
 	inline public function isLower():Bool
 	{
-		return Mathematics.isEven(value) == true;
+		return M.isEven(value) == true;
 	}
 	
 	inline public function isUpper():Bool
 	{
-		return Mathematics.isEven(value) == false;
+		return M.isEven(value) == false;
 	}
 	
 	inline public function swap(b:Bound):Void

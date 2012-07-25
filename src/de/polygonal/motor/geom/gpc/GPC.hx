@@ -40,11 +40,12 @@ import de.polygonal.core.math.Mathematics;
 import de.polygonal.core.math.Vec2;
 import de.polygonal.ds.ArrayUtil;
 import de.polygonal.ds.DA;
-import de.polygonal.ds.mem.BitMemory;
-import de.polygonal.ds.mem.DoubleMemory;
-import de.polygonal.ds.mem.IntMemory;
 import de.polygonal.ds.pooling.DynamicObjectPool;
+import de.polygonal.ds.mem.BitMemory;
+import de.polygonal.ds.mem.IntMemory;
+import de.polygonal.ds.mem.DoubleMemory;
 import de.polygonal.motor.geom.primitive.AABB2;
+import de.polygonal.core.macro.Assert;
 
 /**
  * <p>The clip operation to be performed by the <em>GPC</em> class.</p>
@@ -134,7 +135,7 @@ class GPC
 {
 	inline static function EQ(a:Float, b:Float):Bool
 	{
-		return Mathematics.cmpAbs(a, b, C.GPC_EPSILON);
+		return M.cmpAbs(a, b, C.GPC_EPSILON);
 	}
 	inline static function OPTIMAL(v:DA<Float>, i:Int):Bool
 	{
@@ -1636,9 +1637,9 @@ private class EdgeNode
 		bot.y                    = 0;
 		top.x                    = 0;
 		top.y                    = 0;
-		xb                       = Mathematics.NaN;
-		xt                       = Mathematics.NaN;
-		dx                       = Mathematics.NaN;
+		xb                       = M.NaN;
+		xt                       = M.NaN;
+		dx                       = M.NaN;
 		type                     = 0;
 		for (i in 0...2) outp[i] = null;
 		prev                     = null;

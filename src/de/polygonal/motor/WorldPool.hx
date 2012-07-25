@@ -72,6 +72,6 @@ class WorldPool
 	inline public static function recyleContactNode(contactNode:ContactEdge):Void
 	{
 		//_contactEdges.put(contactNode.id);
-		//contactNode.id = Mathematics.INT32_MIN;
+		//contactNode.id = M.INT32_MIN;
 	}
 }

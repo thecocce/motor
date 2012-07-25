@@ -60,18 +60,18 @@ class Settings
 		contactPoolSize         = 256;
 		minAABBLineThickness    = 0.01 * lengthUnitsPerMeter;
 		linSlop                 = 0.005 * lengthUnitsPerMeter;
-		angSlop                 = 2 * Mathematics.DEG_RAD;
+		angSlop                 = 2 * M.DEG_RAD;
 		toiSlop                 = 8 * linSlop;
 		velThreshold            = 1. * lengthUnitsPerMeter / timeUnitsPerSecond;
 		maxLinCorrection        = 0.2 * lengthUnitsPerMeter;
-		maxAngCorrection        = 8 * Mathematics.DEG_RAD;
+		maxAngCorrection        = 8 * M.DEG_RAD;
 		maxLinVelocity          = 200 * lengthUnitsPerMeter / timeUnitsPerSecond;
 		maxAngVelocity          = 250;
 		contactBaumgarte        = 0.2;
 		contactBaumgarteToi     = 0.75;
 		timeToSleep             = 0.5 * timeUnitsPerSecond;
 		linSleepTolerance       = 0.01 * (lengthUnitsPerMeter / timeUnitsPerSecond);
-		angSleepTolerance       = (2.0 * Mathematics.DEG_RAD) / timeUnitsPerSecond;
+		angSleepTolerance       = (2.0 * M.DEG_RAD) / timeUnitsPerSecond;
 		maxToiContactsPerIsland = 32;
 		maxToiJointsPerIsland   = 32;
 		maxStackLayerCount      = 32;
@@ -229,10 +229,10 @@ class Settings
 	public var maxStackLayerCount:Int;
 	
 	/** Friction mixing law. */
-	public function mixFriction(friction1:Float, friction2:Float):Float { return 1 / Mathematics.invSqrt(friction1 * friction2); }
+	public function mixFriction(friction1:Float, friction2:Float):Float { return 1 / M.invSqrt(friction1 * friction2); }
 
 	/** Restitution mixing law. */
-	public function mixRestitution(restitution1:Float, restitution2:Float):Float { return Mathematics.fmax(restitution1, restitution2); }
+	public function mixRestitution(restitution1:Float, restitution2:Float):Float { return M.fmax(restitution1, restitution2); }
 	
 	/** Assigns a step size. */
 	public function setStepSize(x:Float):Void
