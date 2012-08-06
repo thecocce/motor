@@ -37,7 +37,8 @@ class SimpleExample
 	static var _app:SimpleExample;
 	public static function main()
 	{
-		de.polygonal.core.Root.init(function() _app = new SimpleExample());
+		de.polygonal.core.Root.init();
+		_app = new SimpleExample();
 	}
 	
 	function new()

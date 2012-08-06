@@ -44,7 +44,8 @@ class BritainArrowsAnimatedExample implements IObserver
 	static var _app:BritainArrowsAnimatedExample;
 	public static function main()
 	{
-		de.polygonal.core.Root.init(function() _app = new BritainArrowsAnimatedExample());
+		de.polygonal.core.Root.init();
+		_app = new BritainArrowsAnimatedExample();
 	}
 	
 	var _vr:VectorRenderer;
