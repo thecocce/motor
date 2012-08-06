@@ -39,7 +39,8 @@ class BritainArrowsExample
 	static var _app:BritainArrowsExample;
 	public static function main()
 	{
-		de.polygonal.core.Root.init(function() _app = new BritainArrowsExample());
+		de.polygonal.core.Root.init();
+		_app = new BritainArrowsExample();
 	}
 	
 	function new()
