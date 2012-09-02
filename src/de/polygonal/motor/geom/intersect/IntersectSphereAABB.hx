@@ -55,6 +55,7 @@ class IntersectSphereAABB
 		if (cx < minX)
 		{
 			d += (minX - cx) * (minX - cx);
+			
 			if (cy < minY)
 				return d + (minY - cy) * (minY - cy) <= r * r;
 			else
@@ -66,8 +67,10 @@ class IntersectSphereAABB
 		else
 		if (cx > maxX)
 		{
+			d += (maxX - cx) * (maxX - cx);
+			
 			if (cy < minY)
-				return d + (cx - maxX) * (cx - maxX) <= r * r;
+				return d + (cy - minY) * (cy - minY) <= r * r;
 			else
 			if (cy > maxY)
 				return d + (cy - maxY) * (cy - maxY) <= r * r;
