@@ -35,17 +35,17 @@
 package de.polygonal.motor.geom.gpc;
 
 import de.polygonal.core.fmt.Sprintf;
+import de.polygonal.core.macro.Assert;
 import de.polygonal.core.math.Limits;
 import de.polygonal.core.math.Mathematics;
 import de.polygonal.core.math.Vec2;
 import de.polygonal.ds.ArrayUtil;
 import de.polygonal.ds.DA;
-import de.polygonal.ds.pooling.DynamicObjectPool;
 import de.polygonal.ds.mem.BitMemory;
-import de.polygonal.ds.mem.IntMemory;
 import de.polygonal.ds.mem.DoubleMemory;
+import de.polygonal.ds.mem.IntMemory;
+import de.polygonal.ds.pooling.DynamicObjectPool;
 import de.polygonal.motor.geom.primitive.AABB2;
-import de.polygonal.core.macro.Assert;
 
 /**
  * <p>The clip operation to be performed by the <em>GPC</em> class.</p>
