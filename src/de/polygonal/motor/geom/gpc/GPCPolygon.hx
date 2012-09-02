@@ -30,9 +30,10 @@
 package de.polygonal.motor.geom.gpc;
 
 import de.polygonal.core.fmt.Sprintf;
+import de.polygonal.core.macro.Assert;
+import de.polygonal.core.math.Mathematics;
 import de.polygonal.ds.DA;
 import de.polygonal.ds.pooling.DynamicObjectPool;
-import de.polygonal.core.macro.Assert;
 
 /**
  * <p>A data structure that is used by the <em>GPC</em> class to describe polygons (both input & clipped polygons).</p>
