@@ -40,7 +40,8 @@ class Testbed
 	{
 		MemoryManager.BLOCK_SIZE_BYTES = 128 << 10;
 		MemoryManager.RESERVE_BYTES = 10 << 20;
-		de.polygonal.core.Root.init(function() _app = new Testbed());
+		de.polygonal.core.Root.init();
+		new Testbed();
 	}
 	
 	var _testRunner:TestRunner;

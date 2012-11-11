@@ -153,7 +153,7 @@ class IntersectMovingSphereSegment
 	
 	inline static function _intersectVertex(cx:Float, cy:Float, vx:Float, vy:Float, px:Float, py:Float, r:Float, q:Vec2):Float
 	{
-		var l = Vec2Util.length(vx, vy);
+		var l = Vec2Util.norm(vx, vy);
 		var t = IntersectSegmentSphere.find7(cx, cy, cx + vx, cy + vy, px, py, r, q);
 		if (t != -1)
 		{

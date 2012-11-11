@@ -75,7 +75,7 @@ class DDAASegmentGrid
 		
 		var dx = bx - ax;
 		var dy = by - ay;
-		var mag = Vec2Util.length(dx, dy);
+		var mag = Vec2Util.norm(dx, dy);
 		dx /= mag;
 		dy /= mag;
 		

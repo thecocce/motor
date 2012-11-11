@@ -121,8 +121,7 @@ class TestGeom extends TestCase
 					{
 						var s = cast(trigger.userData, Sphere2);
 						
-						var p = MousePointer.get().position();
-						
+						var p = MousePointer.get();
 						var dx = p.x - s.c.x;
 						var dy = p.y - s.c.y;
 						if (dx * dx + dy * dy < s.r * s.r)
@@ -139,7 +138,7 @@ class TestGeom extends TestCase
 			if (type == TriggerEvent.DRAG)
 			{
 				var trigger = cast(source, Trigger);
-				var p = trigger.pointer.position();
+				var p = trigger.pointer;
 				
 				if (Std.is(trigger.userData, Sphere2))
 				{
@@ -293,7 +292,7 @@ class TestGeom extends TestCase
 		
 		var dx =-b.y + a.y;
 		var dy = b.x - a.x;
-		var l = Vec2Util.length(dx, dy);
+		var l = Vec2Util.norm(dx, dy);
 		dx /= l;
 		dy /= l;
 		var e = 8;

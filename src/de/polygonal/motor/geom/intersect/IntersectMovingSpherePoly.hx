@@ -54,7 +54,7 @@ class IntersectMovingSpherePoly
 	 */
 	inline public static function test6(sx:Float, sy:Float, r:Float, vx:Float, vy:Float, P:Poly2):Bool
 	{
-		var l = 1 / Vec2Util.length(vx, vy);
+		var l = 1 / Vec2Util.norm(vx, vy);
 		var dx = vx * l;
 		var dy = vy * l;
 		
@@ -126,7 +126,7 @@ class IntersectMovingSpherePoly
 	 */
 	inline public static function find6(sx:Float, sy:Float, r:Float, vx:Float, vy:Float, P:Poly2, q:Vec2):Float
 	{
-		var l = 1 / Vec2Util.length(vx, vy);
+		var l = 1 / Vec2Util.norm(vx, vy);
 		var dx = vx * l;
 		var dy = vy * l;
 		

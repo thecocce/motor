@@ -9,6 +9,10 @@ If you want to test the latest beta build, you should pull the dev branch and ad
 
 ## Changelog
 
+### alpha (dev branch)
+
+ * fixed IntersectSphereAABB
+
 ### alpha (released 2012-06-27)
 
  * Initial version.
