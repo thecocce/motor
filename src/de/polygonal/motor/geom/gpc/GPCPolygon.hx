@@ -30,7 +30,7 @@
 package de.polygonal.motor.geom.gpc;
 
 import de.polygonal.core.fmt.Sprintf;
-import de.polygonal.core.macro.Assert;
+import de.polygonal.core.util.Assert;
 import de.polygonal.core.math.Mathematics;
 import de.polygonal.ds.DA;
 import de.polygonal.ds.pooling.DynamicObjectPool;

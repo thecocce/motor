@@ -71,8 +71,8 @@ class IntersectMovingSphereSegment
 	public static function find9(cx:Float, cy:Float, r:Float, ax:Float, ay:Float, bx:Float, by:Float, vx:Float, vy:Float, q:Vec2):Float
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(!(ax == bx && ay == by), 'degenerate segment');
-		de.polygonal.core.macro.Assert.assert(Math.sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay)) > M.EPS, 'degenerate segment');
+		D.assert(!(ax == bx && ay == by), 'degenerate segment');
+		D.assert(Math.sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay)) > M.EPS, 'degenerate segment');
 		#end
 		
 		var dx = bx - ax;

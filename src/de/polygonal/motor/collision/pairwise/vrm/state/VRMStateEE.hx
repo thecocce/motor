@@ -55,11 +55,11 @@ class VRMStateEE extends VRMState
 		var dh2 = Vec2Util.perpDot4(n.x, n.y, ef2.w.x - ef1.v.x, ef2.w.y - ef1.v.y);
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(dt == dt2, 'dt == dt2');
+		D.assert(dt == dt2, 'dt == dt2');
 		#end
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(dh2 == dh, 'dh2 = dh');
+		D.assert(dh2 == dh, 'dh2 = dh');
 		#end
 		
 		if (dt < .0 && dh < .0)

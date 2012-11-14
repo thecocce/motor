@@ -86,7 +86,7 @@ class AbstractBroadPhase<T:Proxy> implements BroadPhase
 		free();
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(_proxyCount == 0, '_proxyCount == 0');
+		D.assert(_proxyCount == 0, '_proxyCount == 0');
 		#end
 		
 		_bound = aabb.clone();
@@ -111,7 +111,7 @@ class AbstractBroadPhase<T:Proxy> implements BroadPhase
 	public function removeProxy(proxyId:Int):Void 
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(proxyId != Proxy.NULL_PROXY, 'proxyId != Proxy.NULL_PROXY');
+		D.assert(proxyId != Proxy.NULL_PROXY, 'proxyId != Proxy.NULL_PROXY');
 		#end
 		
 		var proxy = _proxyPool.get(proxyId);
@@ -146,7 +146,7 @@ class AbstractBroadPhase<T:Proxy> implements BroadPhase
 	function _initPairHandler():Void
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(_proxyCount == 0, '_proxyCount == 0');
+		D.assert(_proxyCount == 0, '_proxyCount == 0');
 		#end
 		
 		_pairManager = new PairManager(_settings.maxPairs, _pairHandler, this, _settings.lazyPooling);

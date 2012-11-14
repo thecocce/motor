@@ -29,7 +29,7 @@
  */
 package de.polygonal.motor.dynamics.joint;
 
-import de.polygonal.core.macro.Assert;
+import de.polygonal.core.util.Assert;
 import de.polygonal.core.math.Mat22;
 import de.polygonal.core.math.Vec2;
 import de.polygonal.motor.Settings;
@@ -257,7 +257,7 @@ class PrismaticJoint extends Joint
 		//super.preStep(dt);
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(body1.invI > 0 || body2.invI > 0, 'body1.invI > 0 || body2.invI > 0');
+		D.assert(body1.invI > 0 || body2.invI > 0, 'body1.invI > 0 || body2.invI > 0');
 		#end
 		
 		//var b1 = body1.getXForm().R;
@@ -297,7 +297,7 @@ class PrismaticJoint extends Joint
 		var invMass = body1.invMass + body2.invMass + body1.invI * _a1 * _a1 + body2.invI * _a2 * _a2;
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(invMass > settings.eps, 'invMass > settings.eps');
+		D.assert(invMass > settings.eps, 'invMass > settings.eps');
 		#end
 			
 		_motorMass = 1 / invMass;
@@ -430,7 +430,7 @@ class PrismaticJoint extends Joint
 			det = (_k22 * _k33 - _k32 * _k23) * _k11 + (_k32 * _k13 - _k12 * _k33) * _k21 + (_k12 * _k23 - _k22 * _k13) * _k31;
 			
 			#if debug
-			de.polygonal.core.macro.Assert.assert(det !=  0, 'det !=  0');
+			D.assert(det !=  0, 'det !=  0');
 			#end
 			
 			det = 1 / det;
@@ -459,7 +459,7 @@ class PrismaticJoint extends Joint
 			det = _k11 * _k22 - _k12 * _k21;
 			
 			#if debug
-			de.polygonal.core.macro.Assert.assert(det != 0, 'det != 0');
+			D.assert(det != 0, 'det != 0');
 			#end
 			
 			det = 1 / det;
@@ -488,7 +488,7 @@ class PrismaticJoint extends Joint
 			det = _k11 * _k22 - _k12 * _k21;
 			
 			#if debug
-			de.polygonal.core.macro.Assert.assert(det != 0, 'det != 0');
+			D.assert(det != 0, 'det != 0');
 			#end
 			
 			det = 1 / det;
@@ -620,7 +620,7 @@ class PrismaticJoint extends Joint
 			det = (_k22 * _k33 - _k32 * _k23) * _k11 + (_k32 * _k13 - _k12 * _k33) * _k21 + (_k12 * _k23 - _k22 * _k13) * _k31;
 			
 			#if debug
-			de.polygonal.core.macro.Assert.assert(det != 0, 'det != 0');
+			D.assert(det != 0, 'det != 0');
 			#end
 			
 			det = 1 / det;

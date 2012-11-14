@@ -80,7 +80,7 @@ class PairManager
 		if (_pairHash.hasKey(key)) return false;
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(_curSize < _maxSize, '_curSize < _maxSize');
+		D.assert(_curSize < _maxSize, '_curSize < _maxSize');
 		_curSize++;
 		#end
 		
@@ -101,7 +101,7 @@ class PairManager
 		if (!_pairHash.hasKey(key)) return false;
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(_curSize > 0, '_curSize > 0');
+		D.assert(_curSize > 0, '_curSize > 0');
 		_curSize--;
 		#end
 		

@@ -165,7 +165,7 @@ class PolyData extends ShapeData
 	public function setBox(w:Float, h:Float):PolyData
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(w > 0 && h > 0, 'w > 0 && h > 0');
+		D.assert(w > 0 && h > 0, 'w > 0 && h > 0');
 		#end
 		
 		var ex = w / 2;
@@ -185,7 +185,7 @@ class PolyData extends ShapeData
 	public function setCircle(numSides:Int, xRadius:Float, ?yRadius = .0):PolyData
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(numSides > 2 && xRadius > 0 && yRadius >= 0, 'numSides > 2 && xRadius > 0 && yRadius >= 0');
+		D.assert(numSides > 2 && xRadius > 0 && yRadius >= 0, 'numSides > 2 && xRadius > 0 && yRadius >= 0');
 		#end
 		
 		if (yRadius == 0) yRadius = xRadius;
@@ -208,7 +208,7 @@ class PolyData extends ShapeData
 	public function setCapsule(length:Float, capRadius1:Float, capRadius2:Float, capRes1:Int, capRes2:Int):PolyData
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(length > 0 && capRadius1 > 0 && capRadius2 > 0 && capRes1 > 1 && capRes2 > 1, 'length > 0 && capRadius1 > 0 && capRadius2 > 0 && capRes1 > 1 && capRes2 > 1');
+		D.assert(length > 0 && capRadius1 > 0 && capRadius2 > 0 && capRes1 > 1 && capRes2 > 1, 'length > 0 && capRadius1 > 0 && capRadius2 > 0 && capRes1 > 1 && capRes2 > 1');
 		#end
 		
 		var t1 = capRadius1;
@@ -248,7 +248,7 @@ class PolyData extends ShapeData
 	public function setRandom(numSides:Int, xRadius:Float, ?yRadius = .0):PolyData
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(xRadius > 0 && yRadius >= 0 && numSides > 2, 'xRadius > 0 && yRadius >= 0 && numSides > 2');
+		D.assert(xRadius > 0 && yRadius >= 0 && numSides > 2, 'xRadius > 0 && yRadius >= 0 && numSides > 2');
 		#end
 		
 		if (yRadius == 0) yRadius = xRadius;

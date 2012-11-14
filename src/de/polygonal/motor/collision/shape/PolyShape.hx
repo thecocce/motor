@@ -101,7 +101,7 @@ class PolyShape extends AbstractShape
 		_area = Poly2.computeCentroidAndArea(_vertexList, localCenter);
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(_area > M.EPS, 'area > M.EPSILON');
+		D.assert(_area > M.EPS, 'area > M.EPSILON');
 		#end
 		
 		if (Vec2Util.dot2(localCenter, localCenter) > M.EPS * M.EPS)
@@ -413,8 +413,8 @@ class PolyShape extends AbstractShape
 			//not cause the plane to pass the centroid
 			//your shape has a radius/extent less than TOI_SLOP
 			#if debug
-			de.polygonal.core.macro.Assert.assert(dx >= 0, 'dx >= 0');
-			de.polygonal.core.macro.Assert.assert(dy >= 0, 'dy >= 0');
+			D.assert(dx >= 0, 'dx >= 0');
+			D.assert(dy >= 0, 'dy >= 0');
 			#end
 			
 			var det = 1 / (n1.x * n2.y - n1.y * n2.x);

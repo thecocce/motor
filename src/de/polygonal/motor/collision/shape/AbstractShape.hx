@@ -31,7 +31,7 @@ package de.polygonal.motor.collision.shape;
 
 import de.polygonal.core.math.Mathematics;
 import de.polygonal.core.math.Vec2;
-import de.polygonal.core.macro.Assert;
+import de.polygonal.core.util.Assert;
 import de.polygonal.ds.Bits;
 import de.polygonal.ds.Hashable;
 import de.polygonal.ds.HashKey;

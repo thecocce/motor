@@ -98,10 +98,10 @@ class ClipCollider implements Collider
 		//validate precomputed height scalar
 		var height = refEdgeVert.edge.height;
 		var t = ((refEdgeVert.x - x) * nx + (refEdgeVert.y - y) * ny);
-		de.polygonal.core.macro.Assert.assert(Math.abs(height - t) < .001, 'Math.abs(height - t) < .001: ' + [height, t]);
+		D.assert(Math.abs(height - t) < .001, 'Math.abs(height - t) < .001: ' + [height, t]);
 		var front1 = (refEdgeVert.x - x) * nx + (refEdgeVert.y - y) * ny;
 		var front2 = refEdgeVert.edge.height;
-		de.polygonal.core.macro.Assert.assert(Math.abs(front1 - front2) < .001, 'Math.abs(front1 - front2) < .001');
+		D.assert(Math.abs(front1 - front2) < .001, 'Math.abs(front1 - front2) < .001');
 		#end
 		
 		//side
@@ -132,7 +132,7 @@ class ClipCollider implements Collider
 		var side2 = Vec2Util.perpDot4(nx, ny, x, y);
 		if (!refShape.hasf(AbstractShape.SYMMETRIC))
 			side2 += Vec2Util.perpDot4(nx, ny, M.mul22x(offs.x, offs.y), M.mul22y(offs.x, offs.y));
-		de.polygonal.core.macro.Assert.assert(Math.abs(side1 - side2) < .001, 'Math.abs(side1 - side2) < .001 :' + [side1, side2]);
+		D.assert(Math.abs(side1 - side2) < .001, 'Math.abs(side1 - side2) < .001 :' + [side1, side2]);
 		#end
 		//}-->
 		
@@ -162,7 +162,7 @@ class ClipCollider implements Collider
 			
 			#if debug
 			//left point should be always closer to left plane (CW)
-			de.polygonal.core.macro.Assert.assert(dist1 < 0, 'dist1 < 0');
+			D.assert(dist1 < 0, 'dist1 < 0');
 			#end
 			
 			//clip second point against left side plane
@@ -192,7 +192,7 @@ class ClipCollider implements Collider
 			if (dist1 < 0)
 			{
 				#if debug
-				de.polygonal.core.macro.Assert.assert(dist1 < dist2, 'dist1 < dist2');
+				D.assert(dist1 < dist2, 'dist1 < dist2');
 				#end
 				
 				//on different sides of right side plane?

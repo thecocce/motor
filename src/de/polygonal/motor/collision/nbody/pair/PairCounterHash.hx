@@ -42,7 +42,7 @@ class PairCounterHash
 	public function new(max:Int)
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(M.isPow2(max), 'M.isPow2(max)');
+		D.assert(M.isPow2(max), 'M.isPow2(max)');
 		#end
 		
 		_data = new IntIntHashTable(max, max);
@@ -73,7 +73,7 @@ class PairCounterHash
 			k++;
 			
 			#if debug
-			de.polygonal.core.macro.Assert.assert(k <= 0xff, 'k <= 0xff');
+			D.assert(k <= 0xff, 'k <= 0xff');
 			#end
 			
 			_data.remap(i, k);
@@ -87,7 +87,7 @@ class PairCounterHash
 		var k = _data.get(i) - 1;
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(k != Limits.INT32_MAX, 'k != Limits.INT32_MAX');
+		D.assert(k != Limits.INT32_MAX, 'k != Limits.INT32_MAX');
 		#end
 		
 		_data.remap(i, k);

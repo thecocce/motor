@@ -73,8 +73,8 @@ class CollideOBBPoly extends ClipCollider
 	override public function collide(manifold:Manifold, s1:AbstractShape, s2:AbstractShape):Void
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(s1.type == ShapeType.BOX, 's1.type == ShapeType.OBB');
-		de.polygonal.core.macro.Assert.assert(s2.type == ShapeType.POLY, 's2.type == ShapeType.POLY');
+		D.assert(s1.type == ShapeType.BOX, 's1.type == ShapeType.OBB');
+		D.assert(s2.type == ShapeType.POLY, 's2.type == ShapeType.POLY');
 		#end
 		
 		//try early out using previous separating line

@@ -36,9 +36,9 @@ class PairKey
 	inline public static function get16(a:Int, b:Int):Int
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(a != b, 'a != b');
-		de.polygonal.core.macro.Assert.assert(a >= Limits.INT16_MIN && a <= Limits.INT16_MAX, 'a >= Limits.INT16_MIN && a <= Limits.INT16_MAX');
-		de.polygonal.core.macro.Assert.assert(b >= Limits.INT16_MIN && b <= Limits.INT16_MAX, 'b >= Limits.INT16_MIN && b <= Limits.INT16_MAX');
+		D.assert(a != b, 'a != b');
+		D.assert(a >= Limits.INT16_MIN && a <= Limits.INT16_MAX, 'a >= Limits.INT16_MIN && a <= Limits.INT16_MAX');
+		D.assert(b >= Limits.INT16_MIN && b <= Limits.INT16_MAX, 'b >= Limits.INT16_MIN && b <= Limits.INT16_MAX');
 		#end
 		
 		if (a < b)
@@ -50,9 +50,9 @@ class PairKey
 	inline public static function getU16(a:Int, b:Int):Int
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(a != b, 'a != b');
-		de.polygonal.core.macro.Assert.assert(a >= 0 && a <= Limits.UINT16_MAX, 'a >= 0 && a <= Limits.UINT16_MAX');
-		de.polygonal.core.macro.Assert.assert(b >= 0 && b <= Limits.UINT16_MAX, 'b >= 0 && b <= Limits.UINT16_MAX');
+		D.assert(a != b, 'a != b');
+		D.assert(a >= 0 && a <= Limits.UINT16_MAX, 'a >= 0 && a <= Limits.UINT16_MAX');
+		D.assert(b >= 0 && b <= Limits.UINT16_MAX, 'b >= 0 && b <= Limits.UINT16_MAX');
 		#end
 		
 		if (a < b)

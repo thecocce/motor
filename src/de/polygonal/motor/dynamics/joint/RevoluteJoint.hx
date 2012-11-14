@@ -29,7 +29,7 @@
  */
 package de.polygonal.motor.dynamics.joint;
 
-import de.polygonal.core.macro.Assert;
+import de.polygonal.core.util.Assert;
 import de.polygonal.core.math.Vec2;	
 import de.polygonal.motor.Settings;
 import de.polygonal.motor.World;
@@ -184,7 +184,7 @@ class RevoluteJoint extends Joint
 		if (lower < upper)
 		{
 			#if debug
-			de.polygonal.core.macro.Assert.assert(lower <= upper, 'lower <= upper');
+			D.assert(lower <= upper, 'lower <= upper');
 			#end
 			
 			body1.wakeUp();
@@ -211,7 +211,7 @@ class RevoluteJoint extends Joint
 		{
 			// checks if a body has fix rotation = infinite moment of inertia
 			#if debug
-			de.polygonal.core.macro.Assert.assert(body1.invI > 0 || body2.invI > 0, 'body1.invI > 0 || body2.invI > 0');
+			D.assert(body1.invI > 0 || body2.invI > 0, 'body1.invI > 0 || body2.invI > 0');
 			#end				
 		}
 		
@@ -368,7 +368,7 @@ class RevoluteJoint extends Joint
 			det = (_k22 * _k33 - _k32 * _k23) * _k11 + (_k32 * _k13 - _k12 * _k33) * _k21 + (_k12 * _k23 - _k22 * _k13) * _k31;
 			
 			#if debug
-			de.polygonal.core.macro.Assert.assert(det != 0, 'det != 0');
+			D.assert(det != 0, 'det != 0');
 			#end
 			
 			det = 1 / det;
@@ -392,7 +392,7 @@ class RevoluteJoint extends Joint
 				{
 					det = _k11 * _k22 - _k12 * _k21;
 					#if debug
-					de.polygonal.core.macro.Assert.assert(det !=0, 'det !=0');
+					D.assert(det !=0, 'det !=0');
 					#end
 					
 					det = 1 / det;						
@@ -415,7 +415,7 @@ class RevoluteJoint extends Joint
 					det = _k11 * _k22 - _k12 * _k21;
 					
 					#if debug
-					de.polygonal.core.macro.Assert.assert(det != 0, 'det != 0');
+					D.assert(det != 0, 'det != 0');
 					#end
 					
 					det = 1 / det;					
@@ -459,7 +459,7 @@ class RevoluteJoint extends Joint
 			det = _k11 * _k22 - _k12 * _k21;
 			
 			#if debug
-			de.polygonal.core.macro.Assert.assert(det != 0, 'det != 0');
+			D.assert(det != 0, 'det != 0');
 			#end
 			
 			det = 1 / det;
@@ -606,7 +606,7 @@ class RevoluteJoint extends Joint
 		var det = _k11 * _k22 - _k12 * _k21;
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(det != 0, 'det != 0');
+		D.assert(det != 0, 'det != 0');
 		#end
 		
 		det = 1 / det;			

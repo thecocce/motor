@@ -191,7 +191,7 @@ class TestSupportMapping extends TestCase
 			_vr.setFillColor(0xffffff, 1);
 			_vr.fillStart();
 			
-			var s = Sprintf.format('%.1f ms (x1.000.000)', [_mean.val]);
+			var s = Sprintf.format('%.1f ms (x1.000.000)', [_mean.val()]);
 			TestCase.getFont().getBound(s, 0, 0, false, true, _tmpAABB);
 			TestCase.getFont().write(s, _window.intervalX - _tmpAABB.intervalX - 10, 22);
 			_vr.fillEnd();

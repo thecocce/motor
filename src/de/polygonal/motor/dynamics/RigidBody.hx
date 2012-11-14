@@ -31,7 +31,7 @@ package de.polygonal.motor.dynamics;
 
 import de.polygonal.core.math.Vec2;
 import de.polygonal.core.math.Vec2Util;
-import de.polygonal.core.macro.Assert;
+import de.polygonal.core.util.Assert;
 import de.polygonal.ds.Bits;
 import de.polygonal.ds.DLL;
 import de.polygonal.ds.DLLNode;
@@ -250,7 +250,7 @@ class RigidBody
 		//add the body to the world;
 		//once added, the world takes control over the body's physical behaviour
 		#if debug
-		de.polygonal.core.macro.Assert.assert(!world.bodyList.contains(this), '!world.getBodyList().contains(this)');
+		D.assert(!world.bodyList.contains(this), '!world.getBodyList().contains(this)');
 		#end
 		
 		this.world = world;
@@ -277,8 +277,8 @@ class RigidBody
 		setf(FREED);
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(world != null, '_world != null');
-		de.polygonal.core.macro.Assert.assert(world.bodyList.contains(this), '_world.getBodyList().contains(this)');
+		D.assert(world != null, '_world != null');
+		D.assert(world.bodyList.contains(this), '_world.getBodyList().contains(this)');
 		#end
 		
 		world.notify(WorldEvent.BODY_DESTROYED, this);
@@ -540,7 +540,7 @@ class RigidBody
 		}
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(hasf(RigidBody.DYNAMIC | RigidBody.STATIC), '_bits.hasBits(RigidBody.DYNAMIC | RigidBody.STATIC)');
+		D.assert(hasf(RigidBody.DYNAMIC | RigidBody.STATIC), '_bits.hasBits(RigidBody.DYNAMIC | RigidBody.STATIC)');
 		#end
 		
 		//if the body type changed, refilter the broad-phase proxies.
@@ -601,7 +601,7 @@ class RigidBody
 			//center the inertia about the center of mass
 			I -= mass * Vec2Util.dot2(center, center);
 			#if debug
-			de.polygonal.core.macro.Assert.assert(I > 0, 'I > 0');
+			D.assert(I > 0, 'I > 0');
 			#end
 			invI = 1 / I;
 		}

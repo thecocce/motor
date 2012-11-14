@@ -137,7 +137,7 @@ class MouseJoint extends Joint
 		_ry = b2.m21 * (la2x - c2.x) + b2.m22 * (la2y - c2.y);
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(_damp + settings.dt * _k > World.settings.eps, '_damp + settings.dt * k > _world.settings.eps');
+		D.assert(_damp + settings.dt * _k > World.settings.eps, '_damp + settings.dt * k > _world.settings.eps');
 		#end
 		
 		_gamma = 1 / (settings.dt * (_damp + settings.dt * _k));
@@ -160,7 +160,7 @@ class MouseJoint extends Joint
 		var det = 1 / (kr11 * kr22 - kr12 * kr21);
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(det != 0, 'det != 0');
+		D.assert(det != 0, 'det != 0');
 		#end
 		
 		_mr11 = det * kr22; _mr12 =-det * kr12;
