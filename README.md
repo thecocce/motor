@@ -9,7 +9,7 @@ If you want to test the latest beta build, you should pull the dev branch and ad
 
 ## Changelog
 
-### alpha (dev branch)
+### 0.1 (dev)
 
  * fixed IntersectSphereAABB
 
