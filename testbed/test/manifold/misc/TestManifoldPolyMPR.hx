@@ -31,8 +31,10 @@ package test.manifold.misc;
 
 import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Mathematics;
+import de.polygonal.core.math.Vec2;
 import de.polygonal.core.math.Vec2Util;
 import de.polygonal.core.Root;
+import de.polygonal.core.util.Assert;
 import de.polygonal.ds.Bits;
 import de.polygonal.gl.VectorRenderer;
 import de.polygonal.motor.collision.pairwise.Collider;
@@ -50,8 +52,6 @@ import de.polygonal.motor.geom.bv.ChainHull;
 import de.polygonal.motor.geom.closest.ClosestPointSegment;
 import de.polygonal.motor.geom.distance.DistancePointSegment;
 import de.polygonal.motor.geom.distance.DistanceSegmentSegment;
-import de.polygonal.core.math.Vec2;
-import de.polygonal.core.math.Vec2;
 import de.polygonal.motor.Settings;
 import de.polygonal.ui.Key;
 import display.Camera;
@@ -544,7 +544,7 @@ private class MPRCollider implements Collider
 		{
 			//{<-- debug
 			wedges.push([new Vec2(v0x, v0y), new Vec2(v1x, v1y), new Vec2(v2x, v2y)]);
-			de.polygonal.core.macro.Assert.assert(iterations++ < 100, 'iterations++ < 100');
+			D.assert(iterations++ < 100, 'iterations++ < 100');
 			//}-->
 			
 			//if the origin lies on the same side of the portal as the interior point, then it lies

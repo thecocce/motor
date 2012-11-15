@@ -205,7 +205,7 @@ class Island
 			}
 			
 			#if debug
-			de.polygonal.core.macro.Assert.assert(contacts.size() == cmax, "contacts.size() == cmax" + ['csize=' +  contacts.size(), 'cmax=' + cmax]);
+			D.assert(contacts.size() == cmax, "contacts.size() == cmax" + ['csize=' +  contacts.size(), 'cmax=' + cmax]);
 			#end*/
 			//
 			//_solver.preStep(settings, contacts2);
@@ -481,12 +481,12 @@ class Island
 		}
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(stackLayerCount <= settings.maxStackLayerCount, 'stackLayerCount <= settings.maxStackLayerCount');
+		D.assert(stackLayerCount <= settings.maxStackLayerCount, 'stackLayerCount <= settings.maxStackLayerCount');
 		#end
 		
 		#if debug
 		//fixed objects were not in contact with any non-fixed objects
-		de.polygonal.core.macro.Assert.assert(_edges.size() > 0, 'edges.size() > 0');
+		D.assert(_edges.size() > 0, 'edges.size() > 0');
 		#end
 		
 		//traverse the edges and assign them to their respective layers they belong to
@@ -516,7 +516,7 @@ class Island
 			
 			#if debug
 			//non-fixed body that was not in contact with anything else
-			de.polygonal.core.macro.Assert.assert(height != Limits.INT32_MAX, 'height != Limits.INT32_MAX');
+			D.assert(height != Limits.INT32_MAX, 'height != Limits.INT32_MAX');
 			#end
 			if (height == Limits.INT32_MAX) continue;
 			

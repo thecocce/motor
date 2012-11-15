@@ -33,7 +33,7 @@ import de.polygonal.core.math.Mathematics;
 import de.polygonal.core.math.Vec2;
 import de.polygonal.ds.ArrayUtil;
 import de.polygonal.motor.geom.primitive.OBB2;
-import de.polygonal.core.macro.Assert;
+import de.polygonal.core.util.Assert;
 
 /**
  * Computes a minimum area bounding rectangle using brute-force fitting.<br/>

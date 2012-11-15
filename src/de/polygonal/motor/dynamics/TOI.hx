@@ -68,8 +68,8 @@ class TOI
 	public function timeOfImpact(shape1:AbstractShape, sweep1:Sweep, shape2:AbstractShape, sweep2:Sweep)
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(sweep1.t0 == sweep2.t0, 'sweep1.t0 == sweep2.t0' + [sweep1.t0, sweep2.t0]);
-		de.polygonal.core.macro.Assert.assert(1 - sweep1.t0 > _settings.eps, '1 - sweep1.t0 > _settings.eps');
+		D.assert(sweep1.t0 == sweep2.t0, 'sweep1.t0 == sweep2.t0' + [sweep1.t0, sweep2.t0]);
+		D.assert(1 - sweep1.t0 > _settings.eps, '1 - sweep1.t0 > _settings.eps');
 		#end
 		
 		var t0 = sweep1.t0;

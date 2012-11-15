@@ -44,7 +44,7 @@ class CircleData extends ShapeData
 		super(density);
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(radius > 0, 'radius > 0');
+		D.assert(radius > 0, 'radius > 0');
 		#end
 		
 		this.radius = radius;

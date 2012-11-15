@@ -61,7 +61,7 @@ class PairCounter
 		var k = _data.get(i) + 1;
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(k <= 0xff, 'k <= 0xff');
+		D.assert(k <= 0xff, 'k <= 0xff');
 		#end
 		
 		_data.set(i, k);
@@ -74,7 +74,7 @@ class PairCounter
 		var k = _data.get(i) - 1;
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(k >= 0, 'k >= 0');
+		D.assert(k >= 0, 'k >= 0');
 		#end
 		
 		_data.set(i, k);
@@ -84,7 +84,7 @@ class PairCounter
 	inline function _getKey(x:Int, y:Int):Int
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(x != y, 'x != y');
+		D.assert(x != y, 'x != y');
 		#end
 		
 		if (x < y)

@@ -63,7 +63,7 @@ class CollideAABBOBB extends ClipCollider
 	override public function collide(manifold:Manifold, s1:AbstractShape, s2:AbstractShape):Void
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(s1.hasf(AbstractShape.AXIS_ALIGNED), 's1.hasf(AbstractShape.AXIS_ALIGNED)');
+		D.assert(s1.hasf(AbstractShape.AXIS_ALIGNED), 's1.hasf(AbstractShape.AXIS_ALIGNED)');
 		#end
 		
 		var T2 = s2.TWorld;

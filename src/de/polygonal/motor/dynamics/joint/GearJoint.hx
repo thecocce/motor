@@ -29,7 +29,7 @@
  */
 package de.polygonal.motor.dynamics.joint;
 	
-import de.polygonal.core.macro.Assert;
+import de.polygonal.core.util.Assert;
 import de.polygonal.core.math.Vec2;
 import de.polygonal.motor.Settings;
 import de.polygonal.motor.World;

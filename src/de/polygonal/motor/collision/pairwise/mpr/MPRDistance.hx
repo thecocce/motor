@@ -137,7 +137,7 @@ class MPRDistance
 		while (true)
 		{
 			#if debug
-			de.polygonal.core.macro.Assert.assert(iterations++ < 100, 'iterations++ < 100');
+			D.assert(iterations++ < 100, 'iterations++ < 100');
 			#end
 			
 			//if the origin lies on the same side of the portal as the interior point, then it lies

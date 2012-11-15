@@ -98,7 +98,7 @@ class ContactManager implements PairHandler
 		if (contact == _nullContact) return;
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(_contactList.size() > 0, '_contactList.size() > 0');
+		D.assert(_contactList.size() > 0, '_contactList.size() > 0');
 		#end
 		
 		_contactList.unlink(contact.listNode);

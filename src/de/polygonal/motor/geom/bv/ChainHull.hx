@@ -31,7 +31,7 @@ package de.polygonal.motor.geom.bv;
 
 import de.polygonal.core.math.Vec2;
 import de.polygonal.core.math.Vec2Util;
-import de.polygonal.core.macro.Assert;
+import de.polygonal.core.util.Assert;
 
 class ChainHull
 {

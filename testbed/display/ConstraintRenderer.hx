@@ -87,7 +87,7 @@ class ConstraintRenderer
 	{
 		_vr.clearStroke();
 		
-		var colorBlendDur = Mathematics.round(.5 / Timebase.get().getTickRate());
+		var colorBlendDur = Mathematics.round(.5 / Timebase.get().tickRate);
 		for (contact in _world.contactList)
 		{
 			if (isSleeping(contact)) continue;

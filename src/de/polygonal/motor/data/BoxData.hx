@@ -50,7 +50,7 @@ class BoxData extends ShapeData
 		super(density, userData);
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(width > 0 && height > 0, 'width > 0 && height > 0');
+		D.assert(width > 0 && height > 0, 'width > 0 && height > 0');
 		#end
 		
 		this.width = width;
@@ -61,7 +61,7 @@ class BoxData extends ShapeData
 	override public function getVertexList():Array<Vec2>
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(width > 0 && height > 0, 'width > 0 && height > 0');
+		D.assert(width > 0 && height > 0, 'width > 0 && height > 0');
 		#end
 		
 		var ex = width / 2;

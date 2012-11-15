@@ -74,7 +74,7 @@ class ExhaustiveSearch extends AbstractBroadPhase<ExhaustiveSearchProxy>
 	override public function removeProxy(id:Int):Void
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(id != Proxy.NULL_PROXY, 'id != Proxy.NULL_PROXY');
+		D.assert(id != Proxy.NULL_PROXY, 'id != Proxy.NULL_PROXY');
 		#end
 		
 		var proxy = _proxyPool.get(id);
@@ -154,7 +154,7 @@ class ExhaustiveSearch extends AbstractBroadPhase<ExhaustiveSearchProxy>
 	override public function queryAABB(bound:AABB2, out:Array<AbstractShape>, maxCount:Int):Int
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(insideBound(bound), 'insideBound(bound)');
+		D.assert(insideBound(bound), 'insideBound(bound)');
 		#end
 		
 		var i = 0;

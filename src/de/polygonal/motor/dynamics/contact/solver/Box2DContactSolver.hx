@@ -32,7 +32,7 @@ package de.polygonal.motor.dynamics.contact.solver;
 import de.polygonal.core.math.Mathematics;
 import de.polygonal.core.math.Vec2;
 import de.polygonal.core.math.Vec2Util;
-import de.polygonal.core.macro.Assert;
+import de.polygonal.core.util.Assert;
 import de.polygonal.ds.DA;
 import de.polygonal.motor.dynamics.contact.Contact;
 import de.polygonal.motor.Settings;
@@ -264,7 +264,7 @@ class Box2DContactSolver
 						var det = k11 * k22 - k12 * k12;
 						
 						#if debug
-						de.polygonal.core.macro.Assert.assert(det != 0, 'det != 0');
+						D.assert(det != 0, 'det != 0');
 						#end
 						
 						det = 1 / det;
@@ -417,8 +417,8 @@ class Box2DContactSolver
 						var vn2 = dv2x * nx + dv2y * ny;
 						
 						//check if normal velocity is close to zero = succesful computation
-						de.polygonal.core.macro.Assert.assert(M.fabs(vn1 - ccp1.velocityBias) < errorTolerance, 'M.abs(vn1 - ccp1.velocityBias) < errorTolerance');
-						de.polygonal.core.macro.Assert.assert(M.fabs(vn2 - ccp2.velocityBias) < errorTolerance, 'M.abs(vn2 - ccp2.velocityBias) < errorTolerance');
+						D.assert(M.fabs(vn1 - ccp1.velocityBias) < errorTolerance, 'M.abs(vn1 - ccp1.velocityBias) < errorTolerance');
+						D.assert(M.fabs(vn2 - ccp2.velocityBias) < errorTolerance, 'M.abs(vn2 - ccp2.velocityBias) < errorTolerance');
 						#end
 						break;
 					}
@@ -465,8 +465,8 @@ class Box2DContactSolver
 						vn1 = dv1x * nx + dv1y * ny;
 						
 						//TODO check absolute value
-						//de.polygonal.core.macro.Assert.assert((vn1 - ccp1.velocityBias) < errorTolerance, "(vn1 - cp1.velocityBias) < errorTolerance");							
-						de.polygonal.core.macro.Assert.assert(M.fabs(vn1 - ccp1.velocityBias) < errorTolerance, 'M.fabs(vn1 - ccp1.velocityBias) < errorTolerance');							
+						//D.assert((vn1 - ccp1.velocityBias) < errorTolerance, "(vn1 - cp1.velocityBias) < errorTolerance");							
+						D.assert(M.fabs(vn1 - ccp1.velocityBias) < errorTolerance, 'M.fabs(vn1 - ccp1.velocityBias) < errorTolerance');							
 						#end
 						break;
 					}
@@ -503,7 +503,7 @@ class Box2DContactSolver
 						var dv2y = v2y + ( w2 * ccp2.r2x) - v1y - ( w1 * ccp2.r1x);
 						var vn2  = dv2x * nx + dv2y * ny;
 						//TODO check assert probably just a change of sign
-						de.polygonal.core.macro.Assert.assert(M.fabs(vn2 - ccp2.velocityBias) < errorTolerance, 'M.abs(vn2 - ccp2.velocityBias) < errorTolerance');
+						D.assert(M.fabs(vn2 - ccp2.velocityBias) < errorTolerance, 'M.abs(vn2 - ccp2.velocityBias) < errorTolerance');
 						#end
 						break;
 					}

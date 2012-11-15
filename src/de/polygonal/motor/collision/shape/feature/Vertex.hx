@@ -32,7 +32,7 @@ package de.polygonal.motor.collision.shape.feature;
 import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Limits;
 import de.polygonal.core.math.Vec2;
-import de.polygonal.core.macro.Assert;
+import de.polygonal.core.util.Assert;
 import de.polygonal.ds.Bits;
 import de.polygonal.ds.Cloneable;
 
@@ -135,8 +135,8 @@ class Vertex extends Vec2
 	inline function _iSetter(x:Int):Int
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(x >= 0, 'x >= 0');
-		de.polygonal.core.macro.Assert.assert(x < Limits.UINT16_MAX, 'x < Limits.UINT16_MAX');
+		D.assert(x >= 0, 'x >= 0');
+		D.assert(x < Limits.UINT16_MAX, 'x < Limits.UINT16_MAX');
 		#end
 		
 		_bits |= x;
@@ -146,7 +146,7 @@ class Vertex extends Vec2
 	inline public function getAt(i:Int):Vertex
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(i >= 0, 'i >= 0');
+		D.assert(i >= 0, 'i >= 0');
 		#end
 		
 		var v = this;

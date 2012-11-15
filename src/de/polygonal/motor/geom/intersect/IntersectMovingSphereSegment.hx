@@ -71,8 +71,8 @@ class IntersectMovingSphereSegment
 	public static function find9(cx:Float, cy:Float, r:Float, ax:Float, ay:Float, bx:Float, by:Float, vx:Float, vy:Float, q:Vec2):Float
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(!(ax == bx && ay == by), 'degenerate segment');
-		de.polygonal.core.macro.Assert.assert(Math.sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay)) > M.EPS, 'degenerate segment');
+		D.assert(!(ax == bx && ay == by), 'degenerate segment');
+		D.assert(Math.sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay)) > M.EPS, 'degenerate segment');
 		#end
 		
 		var dx = bx - ax;
@@ -153,7 +153,7 @@ class IntersectMovingSphereSegment
 	
 	inline static function _intersectVertex(cx:Float, cy:Float, vx:Float, vy:Float, px:Float, py:Float, r:Float, q:Vec2):Float
 	{
-		var l = Vec2Util.length(vx, vy);
+		var l = Vec2Util.norm(vx, vy);
 		var t = IntersectSegmentSphere.find7(cx, cy, cx + vx, cy + vy, px, py, r, q);
 		if (t != -1)
 		{

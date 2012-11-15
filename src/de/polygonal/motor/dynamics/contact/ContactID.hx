@@ -66,7 +66,7 @@ class ContactID
 	 public static function setRefEdge(id:Int, x:Int):Int
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(x >= 0 && x <= 0xfe, 'x >= 0 && x <= 0xfe');
+		D.assert(x >= 0 && x <= 0xfe, 'x >= 0 && x <= 0xfe');
 		#end
 		
 		return (id & ~0xff000000) | ((x + 1) << 24);
@@ -76,7 +76,7 @@ class ContactID
 	 public static function setIncEdge(id:Int, x:Int):Int
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(x >= 0 && x <= 0xfe, 'x >= 0 && x <= 0xfe');
+		D.assert(x >= 0 && x <= 0xfe, 'x >= 0 && x <= 0xfe');
 		#end
 		
 		return (id & ~0x00ff0000) | ((x + 1) << 16);
@@ -86,7 +86,7 @@ class ContactID
 	 public static function setIncVert(id:Int, x:Int):Int
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(x >= 0 && x <= 0xfe, 'x >= 0 && x <= 0xfe');
+		D.assert(x >= 0 && x <= 0xfe, 'x >= 0 && x <= 0xfe');
 		#end
 		
 		return (id & ~0x0000ff00) | ((x + 1) << 8);
@@ -96,7 +96,7 @@ class ContactID
 	 public static function setFlip(id:Int, x:Int):Int
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(x == 0 || x == 1 || x == NULL_FEATURE, 'x == 0 || x == 1');
+		D.assert(x == 0 || x == 1 || x == NULL_FEATURE, 'x == 0 || x == 1');
 		#end
 		
 		return (id & ~0x000000ff) | (x + 1);
@@ -106,10 +106,10 @@ class ContactID
 	 public static function bake(refEdge:Int, incEdge:Int, incVert:Int, flip:Int):Int
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(refEdge <= NULL_FEATURE, 'refEdge <= NULL_FEATURE');
-		de.polygonal.core.macro.Assert.assert(incEdge <= NULL_FEATURE, 'incEdge <= NULL_FEATURE');
-		de.polygonal.core.macro.Assert.assert(incVert <= NULL_FEATURE, 'incVert <= NULL_FEATURE');
-		de.polygonal.core.macro.Assert.assert(flip == 0 || flip == 1, 'flip == 0 || flip == 1');
+		D.assert(refEdge <= NULL_FEATURE, 'refEdge <= NULL_FEATURE');
+		D.assert(incEdge <= NULL_FEATURE, 'incEdge <= NULL_FEATURE');
+		D.assert(incVert <= NULL_FEATURE, 'incVert <= NULL_FEATURE');
+		D.assert(flip == 0 || flip == 1, 'flip == 0 || flip == 1');
 		#end
 		return (refEdge + 1) << 24 | (incEdge + 1) << 16 | (incVert + 1) << 8 | (flip + 1);
 	}
@@ -124,7 +124,7 @@ class ContactID
 			var incEdge = getIncEdge(x) == NULL_FEATURE ? 'NULL' : Std.string(getIncEdge(x));
 			var incVert = getIncVert(x) == NULL_FEATURE ? 'NULL' : Std.string(getIncVert(x));
 			var flip    = getFlip(x)    == NULL_FEATURE ? 'NULL' : Std.string(getFlip(x));
-			return Sprintf.format('RE %d IE %d IV %d F %d', [refEdge, incEdge, incVert, flip]);
+			return Sprintf.format('RE %s IE %s IV %s F %s', [refEdge, incEdge, incVert, flip]);
 		}
 	}
 }

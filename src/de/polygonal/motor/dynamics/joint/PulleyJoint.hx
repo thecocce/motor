@@ -107,7 +107,7 @@ class PulleyJoint extends Joint
 		_ga2y = d.groundAnchor2.y - _g1y;
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(d.ratio != 0, 'd.ratio != 0');
+		D.assert(d.ratio != 0, 'd.ratio != 0');
 		#end
 			
 		ratio = d.ratio;
@@ -267,19 +267,19 @@ class PulleyJoint extends Joint
 		var invMass3 = invMass1 + ratio * ratio * invMass2;
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(invMass1 > _settings.eps, 'invMass1 > _settings.eps');
+		D.assert(invMass1 > _settings.eps, 'invMass1 > _settings.eps');
 		#end
 		
 		_limitMass1 = 1 / invMass1;
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(invMass2 > _settings.eps, 'invMass2 > _settings.eps');
+		D.assert(invMass2 > _settings.eps, 'invMass2 > _settings.eps');
 		#end
 		
 		_limitMass2 = 1 / invMass2;
 		
 		#if debug
-		de.polygonal.core.macro.Assert.assert(invMass3 > _settings.eps, 'invMass3 > _settings.eps');
+		D.assert(invMass3 > _settings.eps, 'invMass3 > _settings.eps');
 		#end
 		
 		_pulleyMass = 1 / invMass3;

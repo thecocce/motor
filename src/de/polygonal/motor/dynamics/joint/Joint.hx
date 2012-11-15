@@ -101,7 +101,7 @@ class Joint
 	public function free()
 	{
 		#if debug
-		de.polygonal.core.macro.Assert.assert(_node.getList().size() > 0, '_node.getList().size() > 0');
+		D.assert(_node.getList().size() > 0, '_node.getList().size() > 0');
 		#end
 		
 		//reset collision filtering if joint prevents collisions

@@ -55,7 +55,7 @@ import de.polygonal.motor.dynamics.RigidBody;
 import de.polygonal.motor.dynamics.TOI;
 import de.polygonal.motor.geom.primitive.AABB2;
 import de.polygonal.motor.collision.nbody.BroadPhase;
-import de.polygonal.core.macro.Assert;
+import de.polygonal.core.util.Assert;
 
 using de.polygonal.ds.BitFlags;
 
@@ -268,7 +268,7 @@ class World extends Observable
 					}
 					
 					#if debug
-					de.polygonal.core.macro.Assert.assert(stack.size() < bodyList.size(), 'stack.size() < bodyList.size()');
+					D.assert(stack.size() < bodyList.size(), 'stack.size() < bodyList.size()');
 					#end
 					
 					stack.push(other);
@@ -298,7 +298,7 @@ class World extends Observable
 					}
 					
 					#if debug
-					de.polygonal.core.macro.Assert.assert(stack.size() < bodyList.size(), 'stack.size() < bodyList.size()');
+					D.assert(stack.size() < bodyList.size(), 'stack.size() < bodyList.size()');
 					#end
 					
 					stack.push(other);
@@ -414,13 +414,13 @@ class World extends Observable
 					}
 					
 					#if debug
-					de.polygonal.core.macro.Assert.assert(t0 < 1., 't0 < 1.');
+					D.assert(t0 < 1., 't0 < 1.');
 					#end
 					
 					toi = _toi.timeOfImpact(s1, sweep1, s2, sweep2);
 					
 					#if debug
-					de.polygonal.core.macro.Assert.assert(.0 <= toi && toi <= 1., '.0 <= toi && toi <= 1.');
+					D.assert(.0 <= toi && toi <= 1., '.0 <= toi && toi <= 1.');
 					#end
 					
 					//if TOI is in range...

@@ -125,7 +125,7 @@ class DistanceJoint extends Joint
 		var invMass = body1.invMass + body1.invI * cr1u * cr1u + body2.invMass + body2.invI * cr2u * cr2u;
 
 		#if debug
-		de.polygonal.core.macro.Assert.assert(invMass > settings.eps, 'invMass > settings.eps');
+		D.assert(invMass > settings.eps, 'invMass > settings.eps');
 		#end
 		
 		_mass = 1.0 / invMass;
