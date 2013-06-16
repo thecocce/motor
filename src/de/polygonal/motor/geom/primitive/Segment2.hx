@@ -106,13 +106,20 @@ class Segment2 implements Cloneable<Segment2>
 	}
 	
 	/** Sets <i>out</i> to the normalized direction. */
-	inline public function getDirection(out:Vec2):Void
+	inline public function getDirection(out:Vec2):Vec2
 	{
 		var dx = b.x - a.x;
 		var dy = b.y - a.y;
 		var l = Math.sqrt(dx * dx + dy * dy);
 		out.x = dx / l;
 		out.y = dy / l;
+		return out;
+	}
+	
+	/** The angle of this segment in radians. */
+	inline public function getAngle():Float
+	{
+		return Math.atan2(b.x - a.x, b.y - a.y);
 	}
 	
 	/** Sets <i>out</i> to the axis-aligned bounding box for this segment. */
