@@ -66,8 +66,7 @@ class Segment2 implements Cloneable<Segment2>
 	}
 	
 	/** The squared length of the line segment. */
-	public var lengthSq(_lengthSqGetter, never):Float;
-	inline function _lengthSqGetter():Float
+	inline public function getLengthSq():Float
 	{
 		var dx = a.x - b.x;
 		var dy = a.y - b.y;
