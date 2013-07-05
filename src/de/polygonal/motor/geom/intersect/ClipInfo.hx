@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.geom.intersect;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Vec2;
 import de.polygonal.motor.collision.shape.feature.Edge;
 
@@ -74,6 +73,6 @@ class ClipInfo
 	/** Returns the string form of the value that the object represents. */
 	public function toString():String
 	{
-		return Sprintf.format('ClipResult t0:%.3f t1:%.3f e0:%d e1:%d q0:(%.3f|%.3f) q1:(%.3f|%.3f)', [t0, t1, e0, e1, q0.x, q0.y, q1.x, q1.y]); 
+		return Printf.format('ClipResult t0:%.3f t1:%.3f e0:%d e1:%d q0:(%.3f|%.3f) q1:(%.3f|%.3f)', [t0, t1, e0, e1, q0.x, q0.y, q1.x, q1.y]); 
 	}
 }

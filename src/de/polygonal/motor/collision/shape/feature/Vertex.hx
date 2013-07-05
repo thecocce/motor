@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.collision.shape.feature;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Limits;
 import de.polygonal.core.math.Vec2;
 import de.polygonal.core.util.Assert;
@@ -161,7 +160,7 @@ class Vertex extends Vec2
 	
 	override public function toString():String
 	{
-		return Sprintf.format('{Vertex x=%.3f y=%.3f i=%d size=%d}', [x, y, i, size]);
+		return Printf.format('{Vertex x=%.3f y=%.3f i=%d size=%d}', [x, y, i, size]);
 	}
 }
 

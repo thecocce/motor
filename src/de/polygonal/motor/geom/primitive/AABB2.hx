@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.geom.primitive;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Vec2;
 
 /**
@@ -405,7 +404,7 @@ class AABB2 implements de.polygonal.ds.Cloneable<AABB2>
 	{
 		if (isEmpty())
 			return 'empty AABB';
-		return Sprintf.format('AABB\nmin(%.3f|%.3f)\nmax(%.3f|%.3f)', [minX, minY, maxX, maxY]);
+		return Printf.format('AABB\nmin(%.3f|%.3f)\nmax(%.3f|%.3f)', [minX, minY, maxX, maxY]);
 	}
 	
 	/**

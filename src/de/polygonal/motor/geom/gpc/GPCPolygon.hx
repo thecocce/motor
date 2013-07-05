@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.geom.gpc;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.util.Assert;
 import de.polygonal.core.math.Mathematics;
 import de.polygonal.ds.DA;
@@ -110,7 +109,7 @@ class GPCPolygon
 	 */
 	inline public function isHoleAt(i:Int):Bool
 	{
-		D.assert(i >= 0 && i < numContours, Sprintf.format('i index out of range (%d)', [i]));
+		D.assert(i >= 0 && i < numContours, Printf.format('i index out of range (%d)', [i]));
 		return _holeFlags.get(i);
 	}
 	
@@ -121,7 +120,7 @@ class GPCPolygon
 	 */
 	inline public function getContourAt(i:Int):DA<Float>
 	{
-		D.assert(i >= 0 && i < numContours, Sprintf.format('i index out of range (%d)', [i]));
+		D.assert(i >= 0 && i < numContours, Printf.format('i index out of range (%d)', [i]));
 		return _contours.get(i);
 	}
 	
@@ -134,7 +133,7 @@ class GPCPolygon
 	 */
 	public function addContour(vertexList:Array<Float>, n:Int, ?isHole = false):Void
 	{
-		D.assert(vertexList.length >= 0 && M.isEven(vertexList.length), Sprintf.format('invalid number of vertices (%d)', [vertexList.length]));
+		D.assert(vertexList.length >= 0 && M.isEven(vertexList.length), Printf.format('invalid number of vertices (%d)', [vertexList.length]));
 		
 		var a = _pool.get();
 		a.clear();

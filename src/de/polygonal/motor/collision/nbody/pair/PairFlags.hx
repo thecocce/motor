@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.collision.nbody.pair;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.ds.mem.BitMemory;
 
 class PairFlags
@@ -39,7 +38,7 @@ class PairFlags
 	public function new(max:Int) 
 	{
 		_data = new BitMemory(max * (max + 1) >> 1);
-		trace(Sprintf.format('allocated %d KiB for %d object ids', [_data.bytes >> 10, max]));
+		trace(Printf.format('allocated %d KiB for %d object ids', [_data.bytes >> 10, max]));
 	}
 	
 	public function free():Void

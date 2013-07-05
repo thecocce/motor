@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.geom.primitive;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Vec2;
 import de.polygonal.ds.Cloneable;
 import de.polygonal.motor.geom.primitive.AABB2;
@@ -170,7 +169,7 @@ class Segment2 implements Cloneable<Segment2>
 	/** Returns the string form of the value that the object represents. */
 	public function toString():String
 	{
-		return Sprintf.format('Segment2 a(%.3f|%.3f) b(%.3f|%.3f)', [a.x, a.y, b.x, b.y]);
+		return Printf.format('Segment2 a(%.3f|%.3f) b(%.3f|%.3f)', [a.x, a.y, b.x, b.y]);
 	}
 	
 	/** Creates and returns a copy of this object. */

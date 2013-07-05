@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.collision.nbody.pair;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.ds.mem.ByteMemory;
 
 class PairCounter
@@ -42,7 +41,7 @@ class PairCounter
 		_max = max;
 		_data = new ByteMemory(max * (max + 1) >> 1);
 		
-		trace(Sprintf.format('allocated %d KiB for %d object ids', [_data.size >> 10, max]));
+		trace(Printf.format('allocated %d KiB for %d object ids', [_data.size >> 10, max]));
 	}
 	
 	public function free():Void
@@ -101,7 +100,7 @@ class PairCounter
 			for (j in i + 1..._max)
 			{
 				var count = _data.get(_getKey(i, j));
-				if (count > 0) s += Sprintf.format('%02d %02d: %d\n', [i, j, count]);
+				if (count > 0) s += Printf.format('%02d %02d: %d\n', [i, j, count]);
 			}
 		}
 		return s;

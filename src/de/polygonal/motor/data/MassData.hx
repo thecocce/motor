@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.data;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Vec2;
 
 /**
@@ -54,6 +53,6 @@ class MassData
 	
 	public function toString():String
 	{
-		return Sprintf.format('MassData: {mass=%.3f, inertia=%.3f, center=[%.3f,%.3f]}', [mass, I, center.x, center.y]);
+		return Printf.format('MassData: {mass=%.3f, inertia=%.3f, center=[%.3f,%.3f]}', [mass, I, center.x, center.y]);
 	}
 }

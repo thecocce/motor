@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.geom.primitive;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Mathematics;
 import de.polygonal.core.math.Vec2;
 import de.polygonal.ds.Cloneable;
@@ -132,7 +131,7 @@ class Sphere2 implements Cloneable<Sphere2>
 	/** Returns the string form of the value that the object represents. */
 	public function toString():String
 	{
-		return Sprintf.format('Sphere2 c(%.3f|%.3f) r%.3f', [c.x, c.y, r]);
+		return Printf.format('Sphere2 c(%.3f|%.3f) r%.3f', [c.x, c.y, r]);
 	}
 	
 	/** Creates and returns a copy of this object. */
