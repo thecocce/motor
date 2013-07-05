@@ -118,20 +118,20 @@ class Vertex extends Vec2
 		edge = null;
 	}
 	
-	public var size(_sizeGetter, never):Int;
-	inline function _sizeGetter():Int { return getAt(0).prev.i + 1; }
+	public var size(get_size, never):Int;
+	inline function get_size():Int { return getAt(0).prev.i + 1; }
 	
-	public var head(_headGetter, _headSetter):Bool;
-	inline function _headGetter():Bool { return hasf(Bits.BIT_30); }
-	inline function _headSetter(x:Bool):Bool { setf(Bits.BIT_30); i = 0; return x; }
+	public var head(get_head, set_head):Bool;
+	inline function get_head():Bool { return return hasf(Bits.BIT_30); }
+	inline function set_head(x:Bool):Bool { setf(Bits.BIT_30); i = 0; return x; }
 	
-	public var tail(_tailGetter, _tailSetter):Bool;
-	inline function _tailGetter():Bool { return hasf(Bits.BIT_31); }
-	inline function _tailSetter(x:Bool):Bool { setf(Bits.BIT_31); return x; }
+	public var tail(get_tail, set_tail):Bool;
+	inline function get_tail():Bool { return hasf(Bits.BIT_31); }
+	inline function set_tail(x:Bool):Bool { setf(Bits.BIT_31); return x; }
 	
-	public var i(_iGetter, _iSetter):Int;
-	inline function _iGetter():Int { return _bits & 0x0000ffff; }
-	inline function _iSetter(x:Int):Int
+	public var i(get_i, set_i):Int;
+	inline function get_i():Int { return _bits & 0x0000ffff; }
+	inline function set_i(x:Int):Int
 	{
 		#if debug
 		D.assert(x >= 0, 'x >= 0');

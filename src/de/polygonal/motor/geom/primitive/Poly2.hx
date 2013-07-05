@@ -342,17 +342,17 @@ class Poly2
 		_T               = null;
 	}
 	
-	public var x(_xGetter, _xSetter):Float;
-	inline function _xGetter():Float { return _T.tx; }
-	inline function _xSetter(x:Float):Float
+	public var x(get_x, set_x):Float;
+	inline function get_x():Float { return _T.tx; }
+	inline function set_x(x:Float):Float
 	{
 		_T.tx = x;
 		return x;
 	}
 	
-	public var y(_yGetter, _ySetter):Float;
-	inline function _yGetter():Float { return _T.ty; }
-	inline function _ySetter(x:Float):Float
+	public var y(get_y, set_y):Float;
+	inline function get_y():Float { return _T.ty; }
+	inline function set_y(x:Float):Float
 	{
 		_T.ty = x;
 		return x;

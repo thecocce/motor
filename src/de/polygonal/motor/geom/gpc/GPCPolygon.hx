@@ -42,8 +42,11 @@ class GPCPolygon
 	/**
 	 * The total number of contours (includes external boundaries and holes).
 	 */
-	public var numContours(_numContoursGetter, never):Int;
-	inline function _numContoursGetter():Int { return _contours.size(); }
+	public var numContours(get_numContours, never):Int;
+	inline function get_numContours():Int
+	{
+		return _contours.size();
+	}
 	
 	var _contours:DA<DA<Float>>;
 	var _holeFlags:DA<Bool>;
