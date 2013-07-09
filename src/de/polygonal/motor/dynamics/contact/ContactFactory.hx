@@ -29,6 +29,8 @@
  */
 package de.polygonal.motor.dynamics.contact;
 
+import de.polygonal.ds.pooling.ObjectPool;
+
 import de.polygonal.ds.Array2;
 import de.polygonal.motor.collision.shape.AbstractShape;
 import de.polygonal.motor.collision.shape.ShapeType;
@@ -175,7 +177,7 @@ class ContactFactory
 	}
 }
 
-import de.polygonal.ds.pooling.ObjectPool;
+
 
 private class ContactRegister
 {

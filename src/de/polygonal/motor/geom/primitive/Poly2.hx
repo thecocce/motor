@@ -339,7 +339,7 @@ class Poly2
 		worldNormalChain = null;
 		localVertexChain = null;
 		localNormalChain = null;
-		_T               = null;
+		_T = null;
 	}
 	
 	public var x(get_x, set_x):Float;

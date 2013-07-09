@@ -36,6 +36,8 @@ import de.polygonal.core.util.Assert;
 import de.polygonal.ds.DA;
 import de.polygonal.motor.dynamics.contact.Contact;
 import de.polygonal.motor.Settings;
+import de.polygonal.motor.dynamics.RigidBody;
+import de.polygonal.motor.dynamics.contact.Manifold;
 
 class Box2DContactSolver
 {
@@ -662,9 +664,6 @@ class Box2DContactSolver
 		return minSeparation >= -1.5 * _settings.linSlop;
 	}
 }
-
-import de.polygonal.motor.dynamics.RigidBody;
-import de.polygonal.motor.dynamics.contact.Manifold;
 
 private class ContactConstraint
 {
