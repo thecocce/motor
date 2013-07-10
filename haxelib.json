@@ -1,0 +1,14 @@
+{
+	"name": "polygonal-motor",
+	"license": "MIT",
+	"description": "2d physics & computational geometry",
+	"url": "https://github.com/polygonal/motor",
+	"tags": ["game", "cross"],
+	"contributors" : ["mbaczynski"],
+	"version": "0.0.1",
+	"releasenote": "See README",
+	"dependencies":
+	{
+		"polygonal-core":""
+	}
+}
