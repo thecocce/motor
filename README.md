@@ -9,9 +9,13 @@ If you want to test the latest beta build, you should pull the dev branch and ad
 
 ## Changelog
 
-### 0.1 (released 2012-11-15)
+### 0.2.0 (released 2013-07-10)
 
- * fixed IntersectSphereAABB
+ * fixed: support Haxe 3
+
+### 0.1.0 (released 2012-11-15)
+
+ * fixed: IntersectSphereAABB
 
 ### alpha (released 2012-06-27)
 

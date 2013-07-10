@@ -5,7 +5,7 @@
 	"url": "https://github.com/polygonal/motor",
 	"tags": ["game", "cross"],
 	"contributors" : ["mbaczynski"],
-	"version": "0.0.1",
+	"version": "0.2.0",
 	"releasenote": "See README",
 	"dependencies":
 	{
