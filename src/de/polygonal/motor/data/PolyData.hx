@@ -301,8 +301,8 @@ class PolyData extends ShapeData
 		var a = [];
 		for (v in _vertexList)
 		{
-			a.push(de.polygonal.core.fmt.Sprintf.format('%.5f', [v.x]));
-			a.push(de.polygonal.core.fmt.Sprintf.format('%.5f', [v.y]));
+			a.push(Printf.format('%.5f', [v.x]));
+			a.push(Printf.format('%.5f', [v.y]));
 		}
 		
 		return '[' + a.join(',') + ']';

@@ -489,14 +489,14 @@ class QuadTree extends AbstractBroadPhase<QuadTreeProxy>
 		}
 		
 		#if (flash && debug)
-		trace('QUADTREE STATISTICS:');
-		trace('max proxies: %d ', _settings.maxProxies);
-		trace('memory: %d KiB', ((flash.system.System.totalMemory - memory) >> 10));
-		trace('depth: %d', _depth + 1);
-		trace('unscaled tree size: %d', treeSize);
-		trace('quad node scale: %.3f/%.3f', _xScale, _yScale);
-		trace('root node size: %d/%d', w, h);
-		trace('leaf node size: %.3f/%.3f', 1 / _xScale, 1 / _yScale);
+		L.d('QUADTREE STATISTICS:');
+		L.d('max proxies: %d ', _settings.maxProxies);
+		L.d('memory: %d KiB', ((flash.system.System.totalMemory - memory) >> 10));
+		L.d('depth: %d', _depth + 1);
+		L.d('unscaled tree size: %d', treeSize);
+		L.d('quad node scale: %.3f/%.3f', _xScale, _yScale);
+		L.d('root node size: %d/%d', w, h);
+		L.d('leaf node size: %.3f/%.3f', 1 / _xScale, 1 / _yScale);
 		#end
 	}
 }

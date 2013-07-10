@@ -37,7 +37,7 @@ import de.polygonal.motor.dynamics.contact.ContactID;
 /**
  * A contact point. The position of the contact is stored in world space.
  */
-class ManifoldPoint extends Vec2, implements Hashable
+class ManifoldPoint extends Vec2 implements Hashable
 {
 	/** World position of the contact point. */
 	//public var x:Float;

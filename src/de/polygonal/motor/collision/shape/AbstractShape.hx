@@ -71,24 +71,24 @@ class AbstractShape implements Hashable
 	inline static var FREED = Bits.BIT_19;
 	
 	/** The x coordinate of the shape center in world space. */
-	public var x(_xGetter, never):Float;
-	inline function _xGetter():Float { return TWorld.tx; }
+	public var x(get_x, never):Float;
+	inline function get_x():Float return TWorld.tx;
 	
 	/** The y coordinate of the shape center in world space. */
-	public var y(_yGetter, never):Float;
-	inline function _yGetter():Float { return TWorld.ty; }
+	public var y(get_y, never):Float;
+	inline function get_y():Float return TWorld.ty;
 	
 	/** The shape rotation in world space. */
-	public var r(_rGetter, never):Float;
-	inline function _rGetter():Float { return TWorld.getAngle(); }
+	public var r(get_r, never):Float;
+	inline function get_r():Float return TWorld.getAngle();
 	
-	public var TBody(_TBodyGetter, never):Mat32;
-	inline function _TBodyGetter():Mat32 { return body.TWorld; }
+	public var TBody(get_TBody, never):Mat32;
+	inline function get_TBody():Mat32 return body.TWorld;
 	
 	public var TLocal(default, null):Mat32;
 	
-	public var TWorld(_TWorldGetter, never):Mat32;
-	inline function _TWorldGetter():Mat32
+	public var TWorld(get_TWorld, never):Mat32;
+	inline function get_TWorld():Mat32
 	{
 		if (!hasf(AbstractShape.T_SYNCED))
 		{

@@ -34,7 +34,6 @@
  */
 package de.polygonal.motor.geom.gpc;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.util.Assert;
 import de.polygonal.core.math.Limits;
 import de.polygonal.core.math.Mathematics;
@@ -432,7 +431,7 @@ class GPC
 							((parity.get(C.SUBJ) ^ ((horiz.get(C.SUBJ) != HState.NH) ? 1:0) ^ edge.bundleGet(C.BELOW,C.SUBJ)) != 0)) ? 1:0;
 					}
 					else
-						throw Sprintf.format('Unknown operation type (%d)', [op]);
+						throw Printf.format('Unknown operation type (%d)', [op]);
 					
 					parity.set(C.CLIP, parity.get(C.CLIP) ^ edge.bundleGet(C.ABOVE, C.CLIP));
 					parity.set(C.SUBJ, parity.get(C.SUBJ) ^ edge.bundleGet(C.ABOVE, C.SUBJ));
@@ -634,7 +633,7 @@ class GPC
 								 ((in_subj ^ e1.bundleGet(C.ABOVE, C.SUBJ) ^ e0.bundleGet(C.ABOVE, C.SUBJ)) != 0)) ? 1 : 0;
 						}
 						else
-							throw Sprintf.format('Unknown operation type (%d)', [op]);
+							throw Printf.format('Unknown operation type (%d)', [op]);
 						
 						var vclass = VertexType.getType(tr, tl, br, bl);
 						switch (vclass)

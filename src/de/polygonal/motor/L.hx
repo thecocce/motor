@@ -8,7 +8,7 @@
  *  _/                        _/_/      _/_/
  *
  * POLYGONAL - A HAXE LIBRARY FOR GAME DEVELOPERS
- * Copyright (c) 2009 Michael Baczynski, http://www.polygonal.de
+ * Copyright (c) 2013 Michael Baczynski, http://www.polygonal.de
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -27,52 +27,29 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.polygonal.motor.geom.intersect;
+package de.polygonal.motor;
 
-import de.polygonal.core.math.Vec2;
-import de.polygonal.motor.collision.shape.feature.Edge;
-
-class ClipInfo
+#if log
+class L
 {
-	public var tmin:Float;
-	
-	/**
-	 * Near t value of intersection for ray r = p + t*d.
-	 * t equals zero if ray origin is inside.
-	 */
-	public var t0:Float;
-	
-	/**
-	 * Far t value of intersection for ray r = p + t*d.
-	 * t equals zero if ray origin is inside.
-	 */
-	public var t1:Float;
-	
-	/** Near intersection edge id. */
-	public var e0:Int;
-	
-	/** Far intersection edge id. */
-	public var e1:Int;
-	
-	/** Near intersection point (if exists). */
-	public var q0:Vec2;
-	
-	/** Far intersection point (if exists). */
-	public var q1:Vec2;
-	
-	//store id's in edges
-	public var edge0:Edge;
-	public var edge1:Edge;
-	
-	public function new()
+	static var _log:de.polygonal.core.log.Log;
+	public static function log():de.polygonal.core.log.Log
 	{
-		q0 = new Vec2();
-		q1 = new Vec2();
+		if (_log == null) _log = de.polygonal.core.log.LogSystem.createLog("motor", true);
+		return _log;
 	}
 	
-	/** Returns the string form of the value that the object represents. */
-	public function toString():String
-	{
-		return Printf.format('ClipResult t0:%.3f t1:%.3f e0:%d e1:%d q0:(%.3f|%.3f) q1:(%.3f|%.3f)', [t0, t1, e0, e1, q0.x, q0.y, q1.x, q1.y]); 
-	}
+	inline public static function d(msg:Dynamic, ?tag:String, ?posInfos:haxe.PosInfos):Void log().d(Std.string(msg), tag, posInfos);
+	inline public static function i(msg:Dynamic, ?tag:String, ?posInfos:haxe.PosInfos):Void log().i(Std.string(msg), tag, posInfos);
+	inline public static function w(msg:Dynamic, ?tag:String, ?posInfos:haxe.PosInfos):Void log().w(Std.string(msg), tag, posInfos);
+	inline public static function e(msg:Dynamic, ?tag:String, ?posInfos:haxe.PosInfos):Void log().e(Std.string(msg), tag, posInfos);
 }
+#else
+class L
+{
+	inline public static function d(x:Dynamic, ?tag:String):Void {}
+	inline public static function i(x:Dynamic, ?tag:String):Void {}
+	inline public static function w(x:Dynamic, ?tag:String):Void {}
+	inline public static function e(x:Dynamic, ?tag:String):Void {}
+}
+#end

@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.geom.primitive;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Vec2;
 import de.polygonal.ds.Cloneable;
 import de.polygonal.core.math.Mat22;
@@ -95,7 +94,7 @@ class OBB2 implements Cloneable<OBB2>
 	/** Returns the string form of the value that the object represents. */
 	public function toString():String
 	{
-		return Sprintf.format('OBB c(%.3f|%.3f) e(%.3f|%.3f) a+%.3f', [c.x, c.y, e.x, e.y, R.getAngle()]);
+		return Printf.format('OBB c(%.3f|%.3f) e(%.3f|%.3f) a+%.3f', [c.x, c.y, e.x, e.y, R.getAngle()]);
 	}
 	
 	/** Creates and returns a copy of this object. */

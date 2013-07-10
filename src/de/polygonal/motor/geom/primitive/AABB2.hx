@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.geom.primitive;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Vec2;
 
 /**
@@ -137,9 +136,12 @@ class AABB2 implements de.polygonal.ds.Cloneable<AABB2>
 	 * Assigning a new value moves the AABB relative to its center position.<br/>
 	 * The size remains unchanged.
 	 */
-	public var centerX(_centerXGetter, _centerXSetter):Float;
-	inline function _centerXGetter():Float { return minX + (maxX - minX) * .5; }
-	inline function _centerXSetter(x:Float):Float
+	public var centerX(get_centerX, set_centerX):Float;
+	inline function get_centerX():Float
+	{
+		return minX + (maxX - minX) * .5;
+	}
+	inline function set_centerX(x:Float):Float
 	{
 		var ex = (maxX - minX) * .5;
 		minX = x - ex;
@@ -152,9 +154,12 @@ class AABB2 implements de.polygonal.ds.Cloneable<AABB2>
 	 * Assigning a new value moves the AABB relative to its center position.<br/>
 	 * The size remains unchanged.
 	 */
-	public var centerY(_centerYGetter, _centerYSetter):Float;
-	inline function _centerYGetter():Float { return minY + (maxY - minY) * .5; }
-	inline function _centerYSetter(x:Float):Float
+	public var centerY(get_centerY, set_centerY):Float;
+	inline function get_centerY():Float
+	{
+		return minY + (maxY - minY) * .5;
+	}
+	inline function set_centerY(x:Float):Float
 	{
 		var ey = (maxY - minY) * .5;
 		minY = x - ey;
@@ -165,14 +170,20 @@ class AABB2 implements de.polygonal.ds.Cloneable<AABB2>
 	/**
 	 * X-axis interval (width).
 	 */
-	public var intervalX(_intervalXGetter, null):Float;
-	inline function _intervalXGetter():Float { return maxX - minX; }
+	public var intervalX(get_intervalX, never):Float;
+	inline function get_intervalX():Float
+	{
+		return maxX - minX;
+	}
 	
 	/**
 	 * Y-axis interval (height).
 	 */
-	public var intervalY(_intervalYGetter, null):Float;
-	inline function _intervalYGetter():Float { return maxY - minY; }
+	public var intervalY(get_intervalY, never):Float;
+	inline function get_intervalY():Float
+	{
+		return maxY - minY;
+	}
 	
 	/**
 	 * Shifts the AABB from <em>minX</em> to <code>x</code>.<br/>
@@ -393,7 +404,7 @@ class AABB2 implements de.polygonal.ds.Cloneable<AABB2>
 	{
 		if (isEmpty())
 			return 'empty AABB';
-		return Sprintf.format('AABB\nmin(%.3f|%.3f)\nmax(%.3f|%.3f)', [minX, minY, maxX, maxY]);
+		return Printf.format('AABB\nmin(%.3f|%.3f)\nmax(%.3f|%.3f)', [minX, minY, maxX, maxY]);
 	}
 	
 	/**

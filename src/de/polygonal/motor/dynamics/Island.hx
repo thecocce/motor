@@ -396,7 +396,7 @@ class Island
 				c = c.next;
 			}
 			
-			trace( 'floating');
+			//trace( 'floating');
 			//stackLayerCount = 1;
 			//stackLayer[0].contacts.clear();
 			return;
@@ -427,7 +427,7 @@ class Island
 			b = b.next;
 		}
 		
-		trace( 'fixedCount : ' + fixedCount );
+		//trace( 'fixedCount : ' + fixedCount );
 		
 		//assigned stack heights to objects and stack layer indices to edges
 		var maxBodyHeight = 0;

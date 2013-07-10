@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.geom.primitive;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Mathematics;
 import de.polygonal.core.math.Vec2;
 
@@ -103,7 +102,7 @@ class Ray2 implements de.polygonal.ds.Cloneable<Ray2>
 	/** Returns the string form of the value that the object represents. */
 	public function toString():String
 	{
-		return Sprintf.format('Ray2 p(%.3f|%.3f) d(%.3f|%.3f)', [p.x, p.y, d.x, d.y]);
+		return Printf.format('{ Ray2 p(%.3f|%.3f) d(%.3f|%.3f) }', [p.x, p.y, d.x, d.y]);
 	}
 	
 	public function clone():Ray2

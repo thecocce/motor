@@ -28,7 +28,6 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 package de.polygonal.motor.dynamics.contact;
-import de.polygonal.core.fmt.Sprintf;
 
 /**
  * Each contact point is assigned a unique id to facilitate warm starting.
@@ -124,7 +123,7 @@ class ContactID
 			var incEdge = getIncEdge(x) == NULL_FEATURE ? 'NULL' : Std.string(getIncEdge(x));
 			var incVert = getIncVert(x) == NULL_FEATURE ? 'NULL' : Std.string(getIncVert(x));
 			var flip    = getFlip(x)    == NULL_FEATURE ? 'NULL' : Std.string(getFlip(x));
-			return Sprintf.format('RE %s IE %s IV %s F %s', [refEdge, incEdge, incVert, flip]);
+			return Printf.format('RE %s IE %s IV %s F %s', [refEdge, incEdge, incVert, flip]);
 		}
 	}
 }

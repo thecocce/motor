@@ -109,85 +109,91 @@ class RigidBody
 	public var sweep(default, null):Sweep;
 	
 	/** The world position of the center of mass. */
-	public var worldCenter(_worldCenterGetter, never):Vec2;
-	inline function _worldCenterGetter():Vec2 { return sweep.c; }
+	public var worldCenter(get_worldCenter, never):Vec2;
+	inline function get_worldCenter():Vec2 return sweep.c;
 	
 	/** The local position of the center of mass. */
-	public var localCenter(_localCenterGetter, never):Vec2;
-	inline function _localCenterGetter():Vec2 { return sweep.localCenter; }
+	public var localCenter(get_localCenter, never):Vec2;
+	inline function get_localCenter():Vec2 return sweep.localCenter;
 	
 	/** The world transform of the body origin. */
 	public var TWorld(default, null):Mat32;
-	//TODO cache and settter
+	
 	/** The world position of the origin (not necessarily the center of mass.) */
-	public var origin(_originGetter, never):Vec2;
-	inline function _originGetter():Vec2 { return TWorld.getPositionFromLocalToParentMatrix(_vTmp); }
+	public var origin(get_origin, never):Vec2;
+	inline function get_origin():Vec2 return TWorld.getPositionFromLocalToParentMatrix(_vTmp);
 	
 	/**
 	 * The world <b>x</b> position of the <b>origin</b> (not necessarily the center of mass).
 	 * @throws de.polygonal.motor.WorldError The body has left the world bound.
 	 */
-	public var x(_xGetter, _xSetter):Float;
-	inline function _xGetter():Float { return TWorld.tx; }
-	inline function _xSetter(x:Float):Float
+	public var x(get_x, set_x):Float;
+	inline function get_x():Float
+	{
+		return TWorld.tx;
+	}
+	inline function set_x(value:Float):Float
 	{
 		if (hasf(FROZEN)) throw WorldError.WorldBoundViolation;
-		TWorld.tx = x;
+		TWorld.tx = value;
 		_syncSweepAfterT();
 		if (!_syncShapesAfterT()) throw WorldError.WorldBoundViolation;
-		return x;
+		return value;
 	}
 	
 	/**
 	 * The world <b>y</b> position of the <b>origin</b> (not necessarily the center of mass).
 	 * @throws de.polygonal.motor.WorldError The body has left the world bound.
 	 */
-	public var y(_yGetter, _ySetter):Float;
-	inline function _yGetter():Float { return TWorld.ty; }
-	inline function _ySetter(x:Float):Float
+	public var y(get_y, set_y):Float;
+	inline function get_y():Float
+	{
+		return return TWorld.ty;
+	}
+	inline function set_y(value:Float):Float
 	{
 		if (hasf(FROZEN)) throw WorldError.WorldBoundViolation;
-		TWorld.ty = x;
+		TWorld.ty = value;
 		_syncSweepAfterT();
 		if (!_syncShapesAfterT()) throw WorldError.WorldBoundViolation;
-		return x;
+		return value;
 	}
 	
 	/**
 	 * The current world rotation angle in radians.
 	 * @throws de.polygonal.motor.WorldError The body has left the world bound.
 	 */
-	public var angle(_gangle, _sangle):Float;
-	inline function _gangle():Float { return sweep.a; }
-	function _sangle(x:Float):Float
+	public var angle(get_angle, set_angle):Float;
+	function get_angle():Float return sweep.a;
+	function set_angle(value:Float):Float
 	{
 		if (hasf(FROZEN)) throw WorldError.WorldBoundViolation;
-		TWorld.setAngle(x);
+		TWorld.setAngle(value);
 		_syncSweepAfterT();
-		sweep.a0 = sweep.a = x;
+		sweep.a0 = sweep.a = value;
 		if (!_syncShapesAfterT()) throw WorldError.WorldBoundViolation;
-		return x;
+		return value;
 	}
 	
 	/** The first attached shape in the body's linked list of shapes. */
-	public var shape(__shape, never):AbstractShape;
-	inline function __shape():AbstractShape
+	public var shape(get_shape, never):AbstractShape;
+	inline function get_shape():AbstractShape
 	{
 		var head = shapeList.head;
 		return (head != null) ? head.val : null;
 	}
 	
 	/** Is this a static body? A static body is a fixed object with an infinitive mass (the inverse mass is zero). */
-	public var isStatic(_isStaticGetter, never):Bool;
-	inline function _isStaticGetter():Bool { return hasf(RigidBody.STATIC); }
+	public var isStatic(get_isStatic, never):Bool;
+	inline function get_isStatic():Bool return hasf(RigidBody.STATIC);
 	
 	/** Is this a dynamic body? A dynamic body is a non-fixed object with a mass greater than zero. */
-	public var isDynamic(_isDynamicGetter, never):Bool;
-	inline function _isDynamicGetter():Bool { return hasf(RigidBody.DYNAMIC); }
+	public var isDynamic(get_isDynamic, never):Bool;
+	inline function get_isDynamic():Bool return hasf(RigidBody.DYNAMIC);
 	
-	/** Is This body sleeping? */
-	public var isSleeping(_isSleepingGetter, never):Bool;
-	inline function _isSleepingGetter():Bool { return hasf(RigidBody.SLEEPING); }
+	/** Is this body sleeping? */
+	public var isSleeping(get_isSleeping, never):Bool;
+	inline function get_isSleeping():Bool return hasf(RigidBody.SLEEPING);
 	
 	/** The stack height which is the shortest distance to a fixed object. */
 	public var stackHeight:Int;

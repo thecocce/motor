@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.geom.primitive;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Vec2;
 
 using de.polygonal.core.math.Mathematics;
@@ -100,7 +99,7 @@ class Plane2 implements de.polygonal.ds.Cloneable<Plane2>
 	/** Returns the string form of the value that the object represents. */
 	public function toString():String
 	{
-		return Sprintf.format('Plane2 n(%.3f|%.3f) d(%.3f)', [n.x, n.y, d]);
+		return Printf.format('Plane2 n(%.3f|%.3f) d(%.3f)', [n.x, n.y, d]);
 	}
 	
 	/** Creates and returns a copy of this object. */

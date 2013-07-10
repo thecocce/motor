@@ -29,7 +29,6 @@
  */
 package de.polygonal.motor.geom.primitive;
 
-import de.polygonal.core.fmt.Sprintf;
 import de.polygonal.core.math.Vec2;
 import de.polygonal.ds.Cloneable;
 import de.polygonal.motor.geom.primitive.AABB2;
@@ -66,8 +65,7 @@ class Segment2 implements Cloneable<Segment2>
 	}
 	
 	/** The squared length of the line segment. */
-	public var lengthSq(_lengthSqGetter, never):Float;
-	inline function _lengthSqGetter():Float
+	inline public function getLengthSq():Float
 	{
 		var dx = a.x - b.x;
 		var dy = a.y - b.y;
@@ -107,13 +105,20 @@ class Segment2 implements Cloneable<Segment2>
 	}
 	
 	/** Sets <i>out</i> to the normalized direction. */
-	inline public function getDirection(out:Vec2):Void
+	inline public function getDirection(out:Vec2):Vec2
 	{
 		var dx = b.x - a.x;
 		var dy = b.y - a.y;
 		var l = Math.sqrt(dx * dx + dy * dy);
 		out.x = dx / l;
 		out.y = dy / l;
+		return out;
+	}
+	
+	/** The angle of this segment in radians. */
+	inline public function getAngle():Float
+	{
+		return Math.atan2(b.x - a.x, b.y - a.y);
 	}
 	
 	/** Sets <i>out</i> to the axis-aligned bounding box for this segment. */
@@ -164,7 +169,7 @@ class Segment2 implements Cloneable<Segment2>
 	/** Returns the string form of the value that the object represents. */
 	public function toString():String
 	{
-		return Sprintf.format('Segment2 a(%.3f|%.3f) b(%.3f|%.3f)', [a.x, a.y, b.x, b.y]);
+		return Printf.format('Segment2 a(%.3f|%.3f) b(%.3f|%.3f)', [a.x, a.y, b.x, b.y]);
 	}
 	
 	/** Creates and returns a copy of this object. */
