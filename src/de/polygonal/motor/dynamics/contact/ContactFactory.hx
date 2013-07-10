@@ -30,6 +30,7 @@
 package de.polygonal.motor.dynamics.contact;
 
 import de.polygonal.ds.pooling.ObjectPool;
+import haxe.ds.StringMap;
 
 import de.polygonal.ds.Array2;
 import de.polygonal.motor.collision.shape.AbstractShape;
@@ -196,12 +197,12 @@ private class ContactRegister
 
 private class ContactPool
 {
-	var _poolHash:Hash<ObjectPool<Contact>>;
+	var _poolHash:StringMap<ObjectPool<Contact>>;
 	var _args:Array<Dynamic>;
 	
 	public function new(settings:Settings)
 	{
-		_poolHash = new Hash<ObjectPool<Contact>>();
+		_poolHash = new StringMap<ObjectPool<Contact>>();
 		_args     = [settings];
 	}
 	

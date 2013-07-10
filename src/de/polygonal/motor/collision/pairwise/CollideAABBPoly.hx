@@ -85,22 +85,30 @@ class CollideAABBPoly extends ClipCollider
 		//try early out by using previous separating line
 		if (_hint != 0)
 		{
-			switch (_hint)
+			var h = _hint;
+			if (h == HINT_SHAPE1 | HINT_X_AXIS)
 			{
-				case HINT_SHAPE1 | HINT_X_AXIS:
-					if (_xSupportMaxPoly(_maxX).x - s1.aabb.maxX > 0) return;
-				
-				case HINT_SHAPE1 | HINT_X_AXIS | HINT_FLIP:
-					if (s1.aabb.minX - _xSupportMinPoly(_minX).x > 0) return;
-				
-				case HINT_SHAPE1:
-					if (_ySupportMaxPoly(_maxY).y - s1.aabb.maxY > 0) return;
-				
-				case HINT_SHAPE1 | HINT_FLIP:
-					if (s1.aabb.minY - _ySupportMinPoly(_minY).y > 0) return;
-				
-				case HINT_SHAPE2:
-					if (_separation(_p, _d, _supportAABB(s2, _d)) > 0) return;
+				if (_xSupportMaxPoly(_maxX).x - s1.aabb.maxX > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE1 | HINT_X_AXIS | HINT_FLIP)
+			{
+				if (s1.aabb.minX - _xSupportMinPoly(_minX).x > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE1)
+			{
+				if (_ySupportMaxPoly(_maxY).y - s1.aabb.maxY > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE1 | HINT_FLIP)
+			{
+				if (s1.aabb.minY - _ySupportMinPoly(_minY).y > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE2)
+			{
+				if (_separation(_p, _d, _supportAABB(s2, _d)) > 0) return;
 			}
 		}
 		

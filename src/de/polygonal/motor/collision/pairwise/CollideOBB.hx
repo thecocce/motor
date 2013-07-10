@@ -65,31 +65,45 @@ class CollideOBB extends ClipCollider
 		//try early out by using previous separating line
 		if (_hint > 0)
 		{
-			switch (_hint)
+			var h = _hint;
+			if (h == HINT_SHAPE1 | HINT_X_AXIS)
 			{
-				case HINT_SHAPE1 | HINT_X_AXIS:
-					if (_separation(s1.v3, s1.n3, _xSupportMin(T1, T2, s2)) > 0) return;
-				
-				case HINT_SHAPE1 | HINT_X_AXIS | HINT_FLIP:
-					if (_separation(s1.v1, s1.n1, _xSupportMax(T1, T2, s2)) > 0) return;
-				
-				case HINT_SHAPE1:
-					if (_separation(s1.v0, s1.n0, _ySupportMin(T1, T2, s2)) > 0) return;
-				
-				case HINT_SHAPE1 | HINT_FLIP:
-					if (_separation(s1.v2, s1.n2, _ySupportMax(T1, T2, s2)) > 0) return;
-				
-				case HINT_SHAPE2 | HINT_X_AXIS:
-					if (_separation(s2.v3, s2.n3, _xSupportMin(T2, T1, s1)) > 0) return;
-				
-				case HINT_SHAPE2 | HINT_X_AXIS | HINT_FLIP:
-					if (_separation(s2.v1, s2.n1, _xSupportMax(T2, T1, s1)) > 0) return;
-				
-				case HINT_SHAPE2:
-					if (_separation(s2.v0, s2.n0, _ySupportMin(T2, T1, s1)) > 0) return;
-				
-				case HINT_SHAPE2 | HINT_FLIP:
-					if (_separation(s2.v2, s2.n2, _ySupportMax(T2, T1, s1)) > 0) return;
+				if (_separation(s1.v3, s1.n3, _xSupportMin(T1, T2, s2)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE1 | HINT_X_AXIS | HINT_FLIP)
+			{
+				if (_separation(s1.v1, s1.n1, _xSupportMax(T1, T2, s2)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE1)
+			{
+				if (_separation(s1.v0, s1.n0, _ySupportMin(T1, T2, s2)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE1 | HINT_FLIP)
+			{
+				if (_separation(s1.v2, s1.n2, _ySupportMax(T1, T2, s2)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE2 | HINT_X_AXIS)
+			{
+				if (_separation(s2.v3, s2.n3, _xSupportMin(T2, T1, s1)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE2 | HINT_X_AXIS | HINT_FLIP)
+			{
+				if (_separation(s2.v1, s2.n1, _xSupportMax(T2, T1, s1)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE2)
+			{
+				if (_separation(s2.v0, s2.n0, _ySupportMin(T2, T1, s1)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE2 | HINT_FLIP)
+			{
+				if (_separation(s2.v2, s2.n2, _ySupportMax(T2, T1, s1)) > 0) return;
 			}
 		}
 		

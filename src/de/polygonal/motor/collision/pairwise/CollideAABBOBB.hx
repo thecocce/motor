@@ -71,31 +71,45 @@ class CollideAABBOBB extends ClipCollider
 		//try early out by using previous separating line
 		if (_hint != 0)
 		{
-			switch (_hint)
+			var h = _hint;
+			if (h == HINT_SHAPE1 | HINT_X_AXIS)
 			{
-				case HINT_SHAPE1 | HINT_X_AXIS:
-					if (_xSupportMinOBB(s2, T2).x - s1.aabb.maxX > 0) return;
-				
-				case HINT_SHAPE1 | HINT_X_AXIS | HINT_FLIP:
-					if (s1.aabb.minX - _xSupportMaxOBB(s2, T2).x > 0) return;
-				
-				case HINT_SHAPE1:
-					if (_ySupportMinOBB(s2, T2).y - s1.aabb.maxY > 0) return;
-				
-				case HINT_SHAPE1 | HINT_FLIP:
-					if (s1.aabb.minY - _ySupportMaxOBB(s2, T2).y > 0) return;
-				
-				case HINT_SHAPE2 | HINT_X_AXIS:
-					if (_separation(s2.v3, s2.n3, _supportAABB(s1, s2.n3)) > 0) return;
-				
-				case HINT_SHAPE2 | HINT_X_AXIS | HINT_FLIP:
-					if (_separation(s2.v1, s2.n1, _supportAABB(s1, s2.n1)) > 0) return;
-				
-				case HINT_SHAPE2:
-					if (_separation(s2.v0, s2.n0, _supportAABB(s1, s2.n0)) > 0) return;
-				
-				case HINT_SHAPE2 | HINT_FLIP:
-					if (_separation(s2.v2, s2.n2, _supportAABB(s1, s2.n2)) > 0) return;
+				if (_xSupportMinOBB(s2, T2).x - s1.aabb.maxX > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE1 | HINT_X_AXIS | HINT_FLIP)
+			{
+				if (s1.aabb.minX - _xSupportMaxOBB(s2, T2).x > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE1)
+			{
+				if (_ySupportMinOBB(s2, T2).y - s1.aabb.maxY > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE1 | HINT_FLIP)
+			{
+				if (s1.aabb.minY - _ySupportMaxOBB(s2, T2).y > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE2 | HINT_X_AXIS)
+			{
+				if (_separation(s2.v3, s2.n3, _supportAABB(s1, s2.n3)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE2 | HINT_X_AXIS | HINT_FLIP)
+			{
+				if (_separation(s2.v1, s2.n1, _supportAABB(s1, s2.n1)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE2)
+			{
+				if (_separation(s2.v0, s2.n0, _supportAABB(s1, s2.n0)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE2 | HINT_FLIP)
+			{
+				if (_separation(s2.v2, s2.n2, _supportAABB(s1, s2.n2)) > 0) return;
 			}
 		}
 		

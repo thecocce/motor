@@ -34,10 +34,7 @@ import de.polygonal.core.math.Vec2;
 import de.polygonal.core.math.Vec2Util;
 import de.polygonal.core.util.Assert;
 import de.polygonal.ds.DA;
-import de.polygonal.motor.dynamics.contact.Contact;
 import de.polygonal.motor.Settings;
-import de.polygonal.motor.dynamics.RigidBody;
-import de.polygonal.motor.dynamics.contact.Manifold;
 
 class Box2DContactSolver
 {
@@ -715,8 +712,6 @@ private class ContactConstraint
 		ccp2     = null;
 	}
 }
-
-import de.polygonal.motor.dynamics.contact.ManifoldPoint;
 
 private class ContactConstraintPoint
 {

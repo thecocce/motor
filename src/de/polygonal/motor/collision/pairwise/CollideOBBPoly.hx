@@ -80,32 +80,40 @@ class CollideOBBPoly extends ClipCollider
 		//try early out using previous separating line
 		if (_hint != 0)
 		{
-			switch (_hint)
+			var h = _hint;
+			if (h == HINT_SHAPE1 | HINT_X_AXIS)
 			{
-				case HINT_SHAPE1 | HINT_X_AXIS:
-					var dx = s1.n0.x;
-					var dy = s1.n0.y;
-					if (_separation(s1.v0, dx, dy, _supportBSPQuery(s2, dx, dy)) > 0) return;
-				
-				case HINT_SHAPE1 | HINT_X_AXIS | HINT_FLIP:
-					var dx = s1.n1.x;
-					var dy = s1.n1.y;
-					if (_separation(s1.v1, dx, dy, _supportBSPQuery(s2, dx, dy)) > 0) return;
-				
-				case HINT_SHAPE1:
-					var dx = s1.n2.x;
-					var dy = s1.n2.y;
-					if (_separation(s1.v2, dx, dy, _supportBSPQuery(s2, dx, dy)) > 0) return;
-				
-				case HINT_SHAPE1 | HINT_FLIP:
-					var dx = s1.n3.x;
-					var dy = s1.n3.y;
-					if (_separation(s1.v3, dx, dy, _supportBSPQuery(s2, dx, dy)) > 0) return;
-				
-				case HINT_SHAPE2:
-					var dx = _d.x;
-					var dy = _d.y;
-					if (_separation(_p, dx, dy, _supportOBB(s1.TBody, dx, dy, s1)) > 0) return;
+				var dx = s1.n0.x;
+				var dy = s1.n0.y;
+				if (_separation(s1.v0, dx, dy, _supportBSPQuery(s2, dx, dy)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE1 | HINT_X_AXIS | HINT_FLIP)
+			{
+				var dx = s1.n1.x;
+				var dy = s1.n1.y;
+				if (_separation(s1.v1, dx, dy, _supportBSPQuery(s2, dx, dy)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE1)
+			{
+				var dx = s1.n2.x;
+				var dy = s1.n2.y;
+				if (_separation(s1.v2, dx, dy, _supportBSPQuery(s2, dx, dy)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE1 | HINT_FLIP)
+			{
+				var dx = s1.n3.x;
+				var dy = s1.n3.y;
+				if (_separation(s1.v3, dx, dy, _supportBSPQuery(s2, dx, dy)) > 0) return;
+			}
+			else
+			if (h == HINT_SHAPE2)
+			{
+				var dx = _d.x;
+				var dy = _d.y;
+				if (_separation(_p, dx, dy, _supportOBB(s1.TBody, dx, dy, s1)) > 0) return;
 			}
 		}
 		
