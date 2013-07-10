@@ -1,4 +1,4 @@
-﻿/*
+/*
  *                            _/                                                    _/
  *       _/_/_/      _/_/    _/  _/    _/    _/_/_/    _/_/    _/_/_/      _/_/_/  _/
  *      _/    _/  _/    _/  _/  _/    _/  _/    _/  _/    _/  _/    _/  _/    _/  _/
@@ -8,7 +8,7 @@
  *  _/                        _/_/      _/_/
  *
  * POLYGONAL - A HAXE LIBRARY FOR GAME DEVELOPERS
- * Copyright (c) 2009 Michael Baczynski, http://www.polygonal.de
+ * Copyright (c) 2013 Michael Baczynski, http://www.polygonal.de
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -27,45 +27,29 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package de.polygonal.motor.collision.nbody.pair;
+package de.polygonal.motor;
 
-import de.polygonal.ds.mem.BitMemory;
-
-class PairFlags
+#if log
+class L
 {
-	var _data:BitMemory;
-	
-	public function new(max:Int) 
+	static var _log:de.polygonal.core.log.Log;
+	public static function log():de.polygonal.core.log.Log
 	{
-		_data = new BitMemory(max * (max + 1) >> 1);
-		L.d(Printf.format('allocated %d KiB for %d object ids', [_data.bytes >> 10, max]));
+		if (_log == null) _log = de.polygonal.core.log.LogSystem.createLog("motor", true);
+		return _log;
 	}
 	
-	public function free():Void
-	{
-		_data.free();
-	}
-	
-	inline public function has(x:Int, y:Int):Bool
-	{
-		return _data.has(_index(x, y));
-	}
-	
-	inline public function set(x:Int, y:Int):Void
-	{
-		_data.set(_index(x, y));
-	}
-	
-	inline public function clr(x:Int, y:Int):Void
-	{
-		_data.clr(_index(x, y));
-	}
-	
-	inline function _index(x:Int, y:Int):Int
-	{
-		if (x < y)
-			return (y * (y + 1) >> 1) + x;
-		else
-			return (x * (x + 1) >> 1) + y;
-	}
+	inline public static function d(msg:Dynamic, ?tag:String, ?posInfos:haxe.PosInfos):Void log().d(Std.string(msg), tag, posInfos);
+	inline public static function i(msg:Dynamic, ?tag:String, ?posInfos:haxe.PosInfos):Void log().i(Std.string(msg), tag, posInfos);
+	inline public static function w(msg:Dynamic, ?tag:String, ?posInfos:haxe.PosInfos):Void log().w(Std.string(msg), tag, posInfos);
+	inline public static function e(msg:Dynamic, ?tag:String, ?posInfos:haxe.PosInfos):Void log().e(Std.string(msg), tag, posInfos);
 }
+#else
+class L
+{
+	inline public static function d(x:Dynamic, ?tag:String):Void {}
+	inline public static function i(x:Dynamic, ?tag:String):Void {}
+	inline public static function w(x:Dynamic, ?tag:String):Void {}
+	inline public static function e(x:Dynamic, ?tag:String):Void {}
+}
+#end

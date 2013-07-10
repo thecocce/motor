@@ -823,9 +823,9 @@ class SAP extends AbstractBroadPhase<SAPProxy>
 		_boundY.assign(Bound, [], k);
 		
 		#if (flash && debug)
-		trace('SAP STATISTICS');
-		trace('max proxies = ' + _maxProxies);
-		trace('memory = ' + ((flash.system.System.totalMemory - memory) >> 10) + ' KiB');
+		L.d('SAP STATISTICS');
+		L.d('max proxies = ' + _maxProxies);
+		L.d('memory = ' + ((flash.system.System.totalMemory - memory) >> 10) + ' KiB');
 		#end
 	}
 	

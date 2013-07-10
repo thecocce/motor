@@ -41,7 +41,7 @@ class PairCounter
 		_max = max;
 		_data = new ByteMemory(max * (max + 1) >> 1);
 		
-		trace(Printf.format('allocated %d KiB for %d object ids', [_data.size >> 10, max]));
+		L.d(Printf.format('allocated %d KiB for %d object ids', [_data.size >> 10, max]));
 	}
 	
 	public function free():Void
